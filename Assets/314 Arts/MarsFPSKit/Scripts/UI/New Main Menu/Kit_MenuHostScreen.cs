@@ -198,6 +198,7 @@ namespace MarsFPSKit
                             options.CustomRoomProperties.Add("password", passwordField.text);
                             //Player needed
                             options.CustomRoomProperties.Add("playerNeeded", currentPlayerNeeded);
+
                             string[] customLobbyProperties = new string[7];
                             customLobbyProperties[0] = "lobby";
                             customLobbyProperties[1] = "map";
