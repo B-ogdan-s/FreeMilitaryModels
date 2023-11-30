@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameModeName: Sandbox
   maps:
+  - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
   - {fileID: 11400000, guid: fd00df94e64985b48b41a871d55f910d, type: 2}
   - {fileID: 11400000, guid: ce8f0bb187976c54ab05dc046451ea9e, type: 2}
   coopPlayerAmount: 4

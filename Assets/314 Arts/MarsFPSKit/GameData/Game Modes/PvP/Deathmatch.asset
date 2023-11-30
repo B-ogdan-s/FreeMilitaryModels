@@ -14,6 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameModeName: Deathmatch
   traditionalMaps:
+  - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
   - {fileID: 11400000, guid: 7f7c0e2ed4697dd46b3bc62a8250f2f7, type: 2}
   - {fileID: 11400000, guid: eed4fe366e088cb4a9dfd1ff682049ee, type: 2}
   - {fileID: 11400000, guid: ef3d27fcaf681114a840332b06bbde32, type: 2}
