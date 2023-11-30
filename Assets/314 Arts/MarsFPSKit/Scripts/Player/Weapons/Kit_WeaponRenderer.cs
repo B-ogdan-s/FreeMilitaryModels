@@ -348,7 +348,7 @@ namespace MarsFPSKit
 
                 List<Kit_SkinInfo> skinsInUse = new List<Kit_SkinInfo>();
 
-                    Debug.Log(enabledAttachments.Length);
+                    Debug.Log("SA" + enabledAttachments.Length);
                 //for (int i = 0; i < enabledAttachments.Length; i++)
                 //{
 

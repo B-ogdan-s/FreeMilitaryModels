@@ -1049,6 +1049,9 @@ namespace MarsFPSKit
                 //Setup renderer
                 data.weaponRenderer = fpRuntime.GetComponent<Kit_WeaponRenderer>();
                 //Set Attachments
+
+                Debug.Log("al: " + attachments.Length);
+
                 data.weaponRenderer.SetAttachments(attachments, this, pb, data);
 
                 //Play Dependent arms

@@ -312,7 +312,7 @@ namespace MarsFPSKit
                     int[] attachments = (int[])table["attachments"];
 
                     //Get their behaviour modules
-                    Debug.Log(id);
+                    //Debug.Log(id);
                     Kit_WeaponBase weaponBehaviour = pb.gameInformation.allWeapons[id];
                     //Setup values
                     weaponBehaviour.SetupValues(id);
