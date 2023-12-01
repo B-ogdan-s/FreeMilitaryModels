@@ -18250,6 +18250,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1001325192095476, guid: 917aa706938d53749a6518d91e0f6d0b, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1507640561024150, guid: 917aa706938d53749a6518d91e0f6d0b, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -18329,6 +18333,11 @@ PrefabInstance:
       propertyPath: m_CullingMask.m_Bits
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 20309932699836336, guid: 917aa706938d53749a6518d91e0f6d0b,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 114050839378922534, guid: 917aa706938d53749a6518d91e0f6d0b,
         type: 3}
       propertyPath: m_Enabled
@@ -18388,7 +18397,7 @@ PrefabInstance:
     - target: {fileID: 224247708494975904, guid: 917aa706938d53749a6518d91e0f6d0b,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -276.2768
+      value: -276.27664
       objectReference: {fileID: 0}
     - target: {fileID: 224355720418841758, guid: 917aa706938d53749a6518d91e0f6d0b,
         type: 3}
@@ -29749,7 +29758,7 @@ Transform:
   m_GameObject: {fileID: 735364445}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.299999, y: -13, z: 9.860001}
+  m_LocalPosition: {x: -9.83, y: -13, z: 21.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -29775,8 +29784,10 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1e9b57d2718b9d3449a01447f6d46e83, type: 2}
   - {fileID: 11400000, guid: e1a01279f7434d340bf66514fc335d03, type: 2}
   - {fileID: 11400000, guid: 5e0319e7d68ebb84f8790f4602874373, type: 2}
-  singleplayerGameModes: []
-  coopGameModes: []
+  singleplayerGameModes:
+  - {fileID: 11400000, guid: 48c355fc36e10db47bde2111b181c4c4, type: 2}
+  coopGameModes:
+  - {fileID: 11400000, guid: 48c355fc36e10db47bde2111b181c4c4, type: 2}
 --- !u!1001 &735504444
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -50999,7 +51010,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1350889270
 Transform:
   m_ObjectHideFlags: 0
