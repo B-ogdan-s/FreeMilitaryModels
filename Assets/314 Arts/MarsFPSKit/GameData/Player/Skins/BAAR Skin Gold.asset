@@ -15,10 +15,10 @@ MonoBehaviour:
   displayName: Gold
   setToRendererWithIndexFp:
   - materialsToSet:
-    - {fileID: 2100000, guid: b86cff27a4cf388449958bba78f8d223, type: 2}
+    - {fileID: 2100000, guid: 84bf732b73b9e19489e618ad14650189, type: 2}
   setToRendererWithIndexTpOverride: []
   setToRendererWithIndexDropOverride:
   - materialsToSet:
-    - {fileID: 2100000, guid: b86cff27a4cf388449958bba78f8d223, type: 2}
+    - {fileID: 2100000, guid: 84bf732b73b9e19489e618ad14650189, type: 2}
   - materialsToSet:
-    - {fileID: 2100000, guid: b86cff27a4cf388449958bba78f8d223, type: 2}
+    - {fileID: 2100000, guid: 84bf732b73b9e19489e618ad14650189, type: 2}

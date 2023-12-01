@@ -82,6 +82,8 @@ namespace MarsFPSKit
                 {
                     int id = i;
                     pb.input.weaponSlotUses[id] = Input.GetButton(weaponSlotKeys[id]);
+
+                    Debug.Log($"Id: {id}; b: {pb.input.weaponSlotUses[id]}");
                 }
 
                 //Scan

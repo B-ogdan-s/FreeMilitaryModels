@@ -33,17 +33,19 @@ MonoBehaviour:
   - Primary
   - Secondary
   - Smoke Grenade
-  defaultWeaponsInSlot: 000000000100000002000000
+  - Frag Grenade
+  defaultWeaponsInSlot: 00000000010000000200000003000000
   allWeapons:
   - {fileID: 11400000, guid: 16b8d1d78a64500488993d5cd05b28d2, type: 2}
   - {fileID: 11400000, guid: 1a1e6c6a7ee01ff49abcc71e9f3c1be7, type: 2}
   - {fileID: 11400000, guid: c79be11517e20f14aa9a73dcdb5c13ea, type: 2}
+  - {fileID: 11400000, guid: a9fdf8255d18e02479f299759cfb0ee3, type: 2}
   allAnimatorAnimationSets:
   - prefix: Rifle
     type: 0
   - prefix: Pistol
     type: 1
-  - prefix: Smoke Grenade
+  - prefix: Melee
     type: 2
   allSingleplayerGameModes:
   - {fileID: 11400000, guid: 48c355fc36e10db47bde2111b181c4c4, type: 2}
