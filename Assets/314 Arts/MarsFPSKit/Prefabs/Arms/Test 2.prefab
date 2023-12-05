@@ -111,6 +111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -1511440526079568015, guid: bb32439e6f67a65409e438d3a5bc622e,
         type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -1511440526079568015, guid: bb32439e6f67a65409e438d3a5bc622e,
+        type: 3}
       propertyPath: m_UpdateWhenOffscreen
       value: 1
       objectReference: {fileID: 0}
@@ -119,6 +124,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Test_002
       objectReference: {fileID: 0}
+    - target: {fileID: 5866666021909216657, guid: bb32439e6f67a65409e438d3a5bc622e,
+        type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 6d3642b8f799652488664dccf590c9b0, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

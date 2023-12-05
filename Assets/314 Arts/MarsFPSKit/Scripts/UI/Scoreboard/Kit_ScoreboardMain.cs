@@ -165,9 +165,12 @@ namespace MarsFPSKit
                     rt_ScoreboardEntries[o].used = false;
                 }
 
+                    Debug.Log(PhotonNetwork.PlayerList.Length);
+
                 //Convert Photon.Realtime.Player to Scoreboard ready entries
                 for (int i = 0; i < PhotonNetwork.PlayerList.Length; i++)
                 {
+
                     //Check if entry is available
                     if (rt_ScoreboardEntries.Count > i)
                     {

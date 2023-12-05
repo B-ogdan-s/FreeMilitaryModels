@@ -48,14 +48,15 @@ namespace MarsFPSKit
             private void Start()
             {
                 //Is loadout supported?
-                if (main.currentPvPGameModeBehaviour && main.currentPvPGameModeBehaviour.LoadoutMenuSupported())
-                {
-                    loadoutButton.SetActive(true);
-                }
-                else
-                {
-                    loadoutButton.SetActive(false);
-                }
+
+                //if (main.currentPvPGameModeBehaviour && main.currentPvPGameModeBehaviour.LoadoutMenuSupported())
+                //{
+                //    loadoutButton.SetActive(true);
+                //}
+                //else
+                //{
+                //    loadoutButton.SetActive(false);
+                //}
             }
 
             private void Update()
@@ -101,7 +102,7 @@ namespace MarsFPSKit
 
                 #region Vote Button
                 //Voting only in pvp game modes
-                voteButton.SetActiveOptimized(main.currentPvPGameModeBehaviour);
+                //voteButton.SetActiveOptimized(main.currentPvPGameModeBehaviour);
                 #endregion
             }
         }

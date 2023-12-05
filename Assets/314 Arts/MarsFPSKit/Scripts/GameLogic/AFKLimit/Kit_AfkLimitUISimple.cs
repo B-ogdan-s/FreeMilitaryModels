@@ -26,7 +26,7 @@ namespace MarsFPSKit
         public override void DisplayWarning(float timePlayerWasAfk, float kickIn, int warningNumber)
         {
             //Start coroutine
-            StartCoroutine(WarningRoutine(timePlayerWasAfk, kickIn, warningNumber));
+            //StartCoroutine(WarningRoutine(timePlayerWasAfk, kickIn, warningNumber));
         }
 
         IEnumerator WarningRoutine(float timePlayerWasAfk, float kickIn, int warningNumber)

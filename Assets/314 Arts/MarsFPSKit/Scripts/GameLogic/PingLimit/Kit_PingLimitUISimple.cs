@@ -26,7 +26,7 @@ namespace MarsFPSKit
         public override void DisplayWarning(float currentPing, int warningNumber)
         {
             //Start coroutine
-            StartCoroutine(WarningRoutine(currentPing, warningNumber));
+            //StartCoroutine(WarningRoutine(currentPing, warningNumber));
         }
 
         IEnumerator WarningRoutine(float currentPing, int warningNumber)
