@@ -14,23 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameModeName: Deathmatch
   traditionalMaps:
-  - {fileID: 11400000, guid: 7f7c0e2ed4697dd46b3bc62a8250f2f7, type: 2}
-  - {fileID: 11400000, guid: eed4fe366e088cb4a9dfd1ff682049ee, type: 2}
-  - {fileID: 11400000, guid: ef3d27fcaf681114a840332b06bbde32, type: 2}
-  - {fileID: 11400000, guid: fd00df94e64985b48b41a871d55f910d, type: 2}
-  - {fileID: 11400000, guid: ce8f0bb187976c54ab05dc046451ea9e, type: 2}
+  - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
   traditionalPlayerLimits: 020406080a
-  traditionalPlayerNeeded: 00000000020000000400000006000000080000000a000000
+  traditionalPlayerNeeded: 020000000400000006000000080000000a000000
   traditionalDurations: 2c01000058020000b0040000
-  traditionalPingLimits: 000000003200000064000000c80000002c010000
+  traditionalPingLimits: 000000006400000032000000c80000002c010000
   traditionalAfkLimits: 000000003c00000078000000b4000000f00000002c010000
   lobbyMaps:
-  - {fileID: 11400000, guid: ce8f0bb187976c54ab05dc046451ea9e, type: 2}
-  - {fileID: 11400000, guid: eed4fe366e088cb4a9dfd1ff682049ee, type: 2}
-  - {fileID: 11400000, guid: ef3d27fcaf681114a840332b06bbde32, type: 2}
-  - {fileID: 11400000, guid: fd00df94e64985b48b41a871d55f910d, type: 2}
+  - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
   lobbyMinimumPlayersNeeded: 2
-  lobbyMaximumPlayers: 10
+  lobbyMaximumPlayers: 2
   lobbyGameDuration: 600
   lobbyPingLimit: 200
   lobbyAfkLimit: 120

@@ -67,7 +67,7 @@ namespace MarsFPSKit
             private int currentGameMode;
             private int currentDuration;
             private int currentPlayerLimit;
-            private int currentPlayerNeeded = 1;
+            private int currentPlayerNeeded = 0;
             private int currentPingLimit;
             private int currentAfkLimit;
             private int currentBotMode;
@@ -198,6 +198,7 @@ namespace MarsFPSKit
                             options.CustomRoomProperties.Add("password", passwordField.text);
                             //Player needed
                             options.CustomRoomProperties.Add("playerNeeded", currentPlayerNeeded);
+
                             string[] customLobbyProperties = new string[7];
                             customLobbyProperties[0] = "lobby";
                             customLobbyProperties[1] = "map";

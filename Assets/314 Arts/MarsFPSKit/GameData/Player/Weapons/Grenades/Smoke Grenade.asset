@@ -18,7 +18,7 @@ MonoBehaviour:
   weaponQuickUsePicture: {fileID: 21300000, guid: 78c3639162c65ee47b492a5b99b68b66,
     type: 3}
   weaponKillfeedImage: {fileID: 0}
-  weaponType: NonLethal
+  weaponType: Primary
   weaponLoadoutSubCategory: Grenade
   canFitIntoSlots: 04000000
   levelToUnlockAt: -1
@@ -28,7 +28,7 @@ MonoBehaviour:
   thirdPersonPrefab: {fileID: 1019958048306934, guid: 8d2487cafdf18514c9e0caeb9a772f97,
     type: 3}
   dropPrefab: {fileID: 1970033384860422, guid: 73e76a36dbe60c041a515af7dc0b97b4, type: 3}
-  thirdPersonAnimType: Melee
+  thirdPersonAnimType: Rifle
   drawTime: 0.5
   putawayTime: 0.5
   deathSoundCategory: 3
@@ -99,4 +99,4 @@ MonoBehaviour:
     type: 3}
   useGenericWalkAnim: 1
   useGenericRunAnim: 0
-  gameGunID: 5
+  gameGunID: 2

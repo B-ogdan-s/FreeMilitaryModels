@@ -25,6 +25,7 @@ MonoBehaviour:
   traditionalPingLimits: 000000003200000064000000c80000002c010000
   traditionalAfkLimits: 000000003c00000078000000b4000000f00000002c010000
   lobbyMaps:
+  - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
   - {fileID: 11400000, guid: ce8f0bb187976c54ab05dc046451ea9e, type: 2}
   - {fileID: 11400000, guid: eed4fe366e088cb4a9dfd1ff682049ee, type: 2}
   - {fileID: 11400000, guid: ef3d27fcaf681114a840332b06bbde32, type: 2}
@@ -63,4 +64,5 @@ MonoBehaviour:
   mapVotingTime: 20
   teamInitialSpawnLayer: 0100000002000000
   teamGameplaySpawnLayer: 0000000000000000
+  useSpawnsNearCapturedFlags: 1
   firstFlagSpawnIndex: 3

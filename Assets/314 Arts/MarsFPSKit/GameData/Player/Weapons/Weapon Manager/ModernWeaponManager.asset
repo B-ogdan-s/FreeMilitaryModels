@@ -23,6 +23,16 @@ MonoBehaviour:
     enableQuickUse: 0
     quickUseInputID: -1
     quickUseIterationKey: -1
+  - enableEquipping: 1
+    equippingInputID: 2
+    enableQuickUse: 0
+    quickUseInputID: -1
+    quickUseIterationKey: -1
+  - enableEquipping: 1
+    equippingInputID: 3
+    enableQuickUse: 0
+    quickUseInputID: -1
+    quickUseIterationKey: -1
   dropPrefab: {fileID: 1168763242038898, guid: cdb7ff000b9c70849929e2222b4210bc, type: 3}
   pickupLayers:
     serializedVersion: 2
