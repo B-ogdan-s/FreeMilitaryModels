@@ -41,12 +41,14 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c79be11517e20f14aa9a73dcdb5c13ea, type: 2}
   - {fileID: 11400000, guid: a9fdf8255d18e02479f299759cfb0ee3, type: 2}
   allAnimatorAnimationSets:
-  - prefix: Melee
-    type: 0
-  - prefix: Pistol
-    type: 1
   - prefix: Rifle
+    type: 0
+  - prefix: Rifle
+    type: 1
+  - prefix: Melee
     type: 2
+  - prefix: Melee
+    type: 3
   allSingleplayerGameModes:
   - {fileID: 11400000, guid: 48c355fc36e10db47bde2111b181c4c4, type: 2}
   allCoopGameModes:
