@@ -43,12 +43,10 @@ MonoBehaviour:
   allAnimatorAnimationSets:
   - prefix: Rifle
     type: 0
-  - prefix: Rifle
+  - prefix: Melee
     type: 1
   - prefix: Melee
     type: 2
-  - prefix: Melee
-    type: 3
   allSingleplayerGameModes:
   - {fileID: 11400000, guid: 48c355fc36e10db47bde2111b181c4c4, type: 2}
   allCoopGameModes:

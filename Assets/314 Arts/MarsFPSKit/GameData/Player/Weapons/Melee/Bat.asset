@@ -18,7 +18,7 @@ MonoBehaviour:
   weaponQuickUsePicture: {fileID: 21300000, guid: 2b1eafbd997e7fa409ba19737fdd88c1,
     type: 3}
   weaponKillfeedImage: {fileID: 0}
-  weaponType: Melee
+  weaponType: Primary
   weaponLoadoutSubCategory: Blunt
   canFitIntoSlots: 02000000
   levelToUnlockAt: -1

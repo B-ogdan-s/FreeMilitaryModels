@@ -28,7 +28,7 @@ MonoBehaviour:
   thirdPersonPrefab: {fileID: 1503862818900358, guid: b620f94abccc6384a93359802034f915,
     type: 3}
   dropPrefab: {fileID: 1221275035235922, guid: d77ee9be215c0214cb00aed654f786ab, type: 3}
-  thirdPersonAnimType: Pistol
+  thirdPersonAnimType: Rifle
   drawTime: 0.833
   putawayTime: 0.667
   deathSoundCategory: 2
@@ -85,7 +85,12 @@ MonoBehaviour:
   amountOfPellets: 12
   speedMultiplierBase: 1
   ragdollForce: 500
+  attachmentSlotsSpecific: []
+  attachmentSlotOverride: {fileID: 0}
   setEmptyBool: 1
+  setAimingBool: 0
+  setAimingProgress: 0
+  setMovementDirection: 0
   crosshairEnabled: 1
   crosshairSizeMultiplier: 1000
   bulletsMode: 1
@@ -272,6 +277,7 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+  fireSoundWeaponIsSilenced: 0
   dryFireSound: {fileID: 8300000, guid: 2ef1f99c46da1c445a38192092d97d8b, type: 3}
   enableWalkAnimationWhileAiming: 0
   genericGunAnimatorControllerPrefab: {fileID: 1896438800841234, guid: 32d35967d844b94479b79cb464e4bea5,

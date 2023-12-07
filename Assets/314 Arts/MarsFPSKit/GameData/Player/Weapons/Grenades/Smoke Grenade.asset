@@ -28,7 +28,7 @@ MonoBehaviour:
   thirdPersonPrefab: {fileID: 1019958048306934, guid: 8d2487cafdf18514c9e0caeb9a772f97,
     type: 3}
   dropPrefab: {fileID: 1970033384860422, guid: 73e76a36dbe60c041a515af7dc0b97b4, type: 3}
-  thirdPersonAnimType: Rifle
+  thirdPersonAnimType: Melee
   drawTime: 0.5
   putawayTime: 0.5
   deathSoundCategory: 3
