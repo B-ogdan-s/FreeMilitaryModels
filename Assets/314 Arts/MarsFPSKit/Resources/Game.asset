@@ -32,8 +32,8 @@ MonoBehaviour:
   allWeaponCategories:
   - Primary
   - Secondary
-  - Smoke Grenade
-  - Frag Grenade
+  - Lethal
+  - NonLethal
   defaultWeaponsInSlot: 00000000010000000200000003000000
   allWeapons:
   - {fileID: 11400000, guid: 16b8d1d78a64500488993d5cd05b28d2, type: 2}
