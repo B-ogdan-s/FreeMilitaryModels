@@ -34,10 +34,11 @@ MonoBehaviour:
   - Secondary
   - Lethal
   - NonLethal
-  defaultWeaponsInSlot: 00000000010000000200000003000000
+  defaultWeaponsInSlot: 0000000001000000020000000300000004000000
   allWeapons:
   - {fileID: 11400000, guid: 16b8d1d78a64500488993d5cd05b28d2, type: 2}
   - {fileID: 11400000, guid: 1a1e6c6a7ee01ff49abcc71e9f3c1be7, type: 2}
+  - {fileID: 11400000, guid: 68e94cf33a825294d8dd533544672171, type: 2}
   - {fileID: 11400000, guid: c79be11517e20f14aa9a73dcdb5c13ea, type: 2}
   - {fileID: 11400000, guid: a9fdf8255d18e02479f299759cfb0ee3, type: 2}
   allAnimatorAnimationSets:
