@@ -32,6 +32,7 @@ MonoBehaviour:
   allWeaponCategories:
   - Primary
   - Secondary
+  - Melee
   - Lethal
   - NonLethal
   defaultWeaponsInSlot: 0000000001000000020000000300000004000000

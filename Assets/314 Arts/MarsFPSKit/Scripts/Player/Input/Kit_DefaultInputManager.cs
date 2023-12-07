@@ -80,6 +80,8 @@ namespace MarsFPSKit
 
                 for (int i = 0; i < weaponSlotKeys.Length; i++)
                 {
+                    Debug.Log($"{i};  {pb.input.weaponSlotUses[i]};  {Input.GetButton(weaponSlotKeys[i])}");
+
                     int id = i;
                     pb.input.weaponSlotUses[id] = Input.GetButton(weaponSlotKeys[id]);
                 }
