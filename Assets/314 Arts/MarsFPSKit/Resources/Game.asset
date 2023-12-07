@@ -43,7 +43,7 @@ MonoBehaviour:
   allAnimatorAnimationSets:
   - prefix: Rifle
     type: 0
-  - prefix: Melee
+  - prefix: Pistolet
     type: 1
   - prefix: Melee
     type: 2
