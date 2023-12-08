@@ -63,7 +63,7 @@ namespace MarsFPSKit
                 pb.input.mouseY = Input.GetAxisRaw("Mouse Y");
                 pb.input.leanLeft = Input.GetButton("Lean Left");
                 pb.input.leanRight = Input.GetButton("Lean Right");
-                pb.input.thirdPerson = Input.GetButton("Change Perspective");
+                //pb.input.thirdPerson = Input.GetButton("Change Perspective");
                 pb.input.flashlight = Input.GetButton("Flashlight");
                 pb.input.laser = Input.GetButton("Laser");
 
@@ -80,8 +80,6 @@ namespace MarsFPSKit
 
                 for (int i = 0; i < weaponSlotKeys.Length; i++)
                 {
-                    Debug.Log($"{i};  {pb.input.weaponSlotUses[i]};  {Input.GetButton(weaponSlotKeys[i])}");
-
                     int id = i;
                     pb.input.weaponSlotUses[id] = Input.GetButton(weaponSlotKeys[id]);
                 }

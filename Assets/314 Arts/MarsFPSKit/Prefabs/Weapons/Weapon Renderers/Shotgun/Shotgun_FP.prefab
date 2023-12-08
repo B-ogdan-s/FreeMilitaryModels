@@ -4920,13 +4920,13 @@ Transform:
   m_GameObject: {fileID: 1326527876580942}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.14959589, y: -2.812, z: -0.125}
+  m_LocalPosition: {x: -0.092, y: 0.04, z: -0.125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1576545541655004050}
   m_Father: {fileID: 4737221434157258}
-  m_LocalEulerAnglesHint: {x: 18.69574, y: -3.11846, z: -148.48651}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1391426435129698
 GameObject:
   m_ObjectHideFlags: 0
@@ -5013,6 +5013,7 @@ MonoBehaviour:
   allWeaponRenderers:
   - {fileID: 2107986765616551590}
   - {fileID: 7640967544610097935}
+  - {fileID: 1499416074429555169}
   hideInCustomiazionMenu: []
   playerModelDependentArmsEnabled: 1
   playerModelDependentArmsKey: Kit
@@ -5270,7 +5271,7 @@ Transform:
   - {fileID: 5898924100091784986}
   - {fileID: 8621770759765270027}
   m_Father: {fileID: 4214686989811700}
-  m_LocalEulerAnglesHint: {x: 16.38485, y: 82.74312, z: -8.642539}
+  m_LocalEulerAnglesHint: {x: 19.858915, y: 82.70637, z: -13.7107}
 --- !u!1 &86841998189614909
 GameObject:
   m_ObjectHideFlags: 0

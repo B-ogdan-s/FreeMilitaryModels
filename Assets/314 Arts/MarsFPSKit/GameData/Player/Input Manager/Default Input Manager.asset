@@ -18,12 +18,12 @@ MonoBehaviour:
   - Weapon Two
   - Melee
   - Grenade Lethal
-  - Cycle Grenade Lethal
   - Grenade Non Lethal
-  - Quick Grenade Non Lethal
-  - Quick Melee
-  - Cycle Grenade Non Lethal
   - Quick Grenade Lethal
+  - Cycle Grenade Lethal
+  - Quick Melee
+  - Quick Grenade Non Lethal
+  - Cycle Grenade Non Lethal
   spottingLayer:
     serializedVersion: 2
     m_Bits: 8192
