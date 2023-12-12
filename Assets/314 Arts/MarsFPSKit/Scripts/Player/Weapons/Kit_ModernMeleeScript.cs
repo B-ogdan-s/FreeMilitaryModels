@@ -1218,6 +1218,8 @@ namespace MarsFPSKit
                                 }
                             }
 
+                            Debug.Log(secondaryAttack);
+
                             if (secondaryAttack == AttackType.Stab)
                             {
                                 //Check for input

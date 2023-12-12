@@ -556,6 +556,7 @@ namespace MarsFPSKit
                                 //Get sprinting input
                                 if (pb.input.sprint && data.moveDirection.z > 0.3f && pb.weaponManager.CanRun(pb))
                                 {
+                                    data.state = 0;
                                     //Check if we can sprint
                                     if (data.state == 0 && (!staminaSystemEnabled || staminaSystemEnabled && data.staminaLeft >= 0f && Time.time > data.staminaDepletedSprintingBlock))
                                     {

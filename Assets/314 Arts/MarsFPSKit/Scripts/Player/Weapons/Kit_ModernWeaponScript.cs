@@ -1216,6 +1216,7 @@ namespace MarsFPSKit
                         //If we are not reloading
                         if (!data.reloadInProgress)
                         {
+                            //Debug.Log(data.lastRmb);
                             //Input
                             if (pb.enableInput)
                             {
@@ -1411,6 +1412,8 @@ namespace MarsFPSKit
                                             //Check if we have spare ammo
                                             if (data.bulletsLeftToReload > 0)
                                             {
+                                                Debug.LogError($"type: {reloadMode}");
+
                                                 //Check if the weapon isn't already full (Chambered means we can have one in the chamber)
                                                 if ((reloadMode == ReloadMode.Chambered || reloadMode == ReloadMode.ProceduralChambered) && data.bulletsLeft != data.bulletsPerMag + 1 || reloadMode != ReloadMode.Chambered && reloadMode != ReloadMode.ProceduralChambered && data.bulletsLeft != data.bulletsPerMag)
                                                 {
@@ -1555,16 +1558,21 @@ namespace MarsFPSKit
                                                             break;
                                                         case ReloadMode.Chambered:
                                                             //Set time for full
+
+
+
                                                             if (data.bulletsLeft > 0)
                                                             {
                                                                 //Set time
                                                                 data.reloadNextEnd = Time.time + reloadTimeOne;
+
                                                                 data.reloadPhase = 0;
                                                                 if (pb.isFirstPersonActive)
                                                                 {
                                                                     //Play animation
                                                                     if (data.weaponRenderer.anim)
                                                                     {
+                                                                        Debug.Log("001");
                                                                         //Play animation
                                                                         data.weaponRenderer.anim.Play("Reload Full", data.weaponRenderer.animActionLayer, 0f);
 
@@ -1572,9 +1580,12 @@ namespace MarsFPSKit
                                                                         {
                                                                             data.weaponRenderer.animAdditionals[i].Play("Reload Full", data.weaponRenderer.animAdditionalsActionLayer[i], 0f);
                                                                         }
+
+                                                                        Debug.Log(pb.input.rmb);
                                                                     }
                                                                     else if (data.weaponRenderer.legacyAnim)
                                                                     {
+                                                                        Debug.Log("002");
                                                                         //Play animation
                                                                         data.weaponRenderer.legacyAnim.CrossFade(data.weaponRenderer.legacyAnimData.reload, 0.15f, PlayMode.StopAll);
                                                                     }
@@ -1641,6 +1652,7 @@ namespace MarsFPSKit
                                                                 //Play third person reload anim
                                                                 pb.thirdPersonPlayerModel.PlayWeaponReloadAnimation(thirdPersonAnimType, 0);
                                                             }
+                                                            //pb.input.rmb
                                                             break;
                                                         case ReloadMode.Procedural:
                                                             if (data.bulletsLeft > 0)
@@ -1843,6 +1855,7 @@ namespace MarsFPSKit
                                             }
                                         }
                                     }
+
                                 }
 
                                 if (data != null && data.weaponRenderer && data.weaponRenderer.cachedInteractionAttachments != null)

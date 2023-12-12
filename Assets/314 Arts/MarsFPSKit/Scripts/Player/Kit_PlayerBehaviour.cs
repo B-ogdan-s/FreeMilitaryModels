@@ -21,6 +21,9 @@ namespace MarsFPSKit
         public bool dropWeapon;
         public bool lmb;
         public bool rmb;
+
+        public bool rmbSave = false;
+
         public bool reload;
         public float mouseX;
         public float mouseY;
