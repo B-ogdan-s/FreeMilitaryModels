@@ -48,14 +48,14 @@ namespace MarsFPSKit
             private void Start()
             {
                 //Is loadout supported?
-                if (main.currentPvPGameModeBehaviour && main.currentPvPGameModeBehaviour.LoadoutMenuSupported())
-                {
-                    loadoutButton.SetActive(true);
-                }
-                else
-                {
-                    loadoutButton.SetActive(false);
-                }
+                //if (main.currentPvPGameModeBehaviour && main.currentPvPGameModeBehaviour.LoadoutMenuSupported())
+                //{
+                //    loadoutButton.SetActive(true);
+                //}
+                //else
+                //{
+                //    loadoutButton.SetActive(false);
+                //}
             }
 
             private void Update()

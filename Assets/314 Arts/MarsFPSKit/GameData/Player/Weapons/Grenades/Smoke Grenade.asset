@@ -22,7 +22,7 @@ MonoBehaviour:
   weaponLoadoutSubCategory: Grenade
   canFitIntoSlots: 04000000
   levelToUnlockAt: -1
-  unlockImage: {fileID: 21300000, guid: c6e175781a7681141b5e13c59d136d1b, type: 3}
+  unlockImage: {fileID: 21300000, guid: 78c3639162c65ee47b492a5b99b68b66, type: 3}
   firstPersonPrefab: {fileID: 1440811190779586, guid: 7570a3bf1658c8048aa93b6b3ac0672d,
     type: 3}
   thirdPersonPrefab: {fileID: 1019958048306934, guid: 8d2487cafdf18514c9e0caeb9a772f97,
@@ -99,4 +99,4 @@ MonoBehaviour:
     type: 3}
   useGenericWalkAnim: 1
   useGenericRunAnim: 0
-  gameGunID: 2
+  gameGunID: 3

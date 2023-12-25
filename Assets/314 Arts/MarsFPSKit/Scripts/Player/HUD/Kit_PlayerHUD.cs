@@ -4,6 +4,7 @@ using MarsFPSKit.Weapons;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 namespace MarsFPSKit
 {
@@ -33,6 +34,8 @@ namespace MarsFPSKit
         /// How much HP do we have left?
         /// </summary>
         public TextMeshProUGUI healthText;
+        public Slider _slider;
+        public Image _renderer;
 
         /// <summary>
         /// Root of bullets
@@ -547,13 +550,15 @@ namespace MarsFPSKit
         /// Display hit points in the HUD
         /// </summary>
         /// <param name="hp">Amount of hitpoints</param>
-        public override void DisplayHealth(float hp)
+        public override void DisplayHealth(int hp)
         {
             if (hp >= 0f)
             {
                 if (!healthRoot.activeSelf) healthRoot.SetActive(true);
                 //Display the HP
-                healthText.text = hp.ToString("F0"); //If you want decimals, change it to F1, F2, etc...
+                healthText.text = hp.ToString("D3"); //If you want decimals, change it to F1, F2, etc...
+                _slider.value = hp / 100f;
+                _renderer.material.SetFloat("_Value", hp / 100f);
             }
             else
             {
@@ -573,20 +578,20 @@ namespace MarsFPSKit
                 if (bl >= 0)
                 {
                     //Set text for bullets left
-                    bulletsLeft.text = bl.ToString("F0");
+                    bulletsLeft.text = bl.ToString("D3");
                 }
                 else
                 {
-                    bulletsLeft.text = "";
+                    bulletsLeft.text = "000";
                 }
                 if (bltr >= 0)
                 {
                     //Set text for bullets left to reload
-                    bulletsLeftToReload.text = bltr.ToString("F0");
+                    bulletsLeftToReload.text = bltr.ToString("D3");
                 }
                 else
                 {
-                    bulletsLeftToReload.text = "";
+                    bulletsLeftToReload.text = "000";
                 }
 
                 if (!bulletsRoot.activeSelf) bulletsRoot.SetActive(true);
@@ -629,10 +634,14 @@ namespace MarsFPSKit
             crosshairMoveRoot.anchoredPosition3D = pos;
         }
 
+        private Dictionary<string, int> _weaponPos = new();
+
         public override void DisplayWeaponsAndQuickUses(Kit_PlayerBehaviour pb, WeaponManagerControllerRuntimeData runtimeData)
         {
             List<WeaponDisplayData> weaponDisplayData = new List<WeaponDisplayData>();
             List<WeaponQuickUseDisplayData> weaponQuickUseDisplayData = new List<WeaponQuickUseDisplayData>();
+
+            int pos = 0;
 
             //Get Data from Weapon Manager!
             for (int i = 0; i < runtimeData.weaponsInUse.Length; i++)
@@ -659,12 +668,22 @@ namespace MarsFPSKit
                     }
 
                     //Add if weapon supports it!
+                    Debug.Log(wqudd);
+
                     if (wqudd != null)
                     {
                         weaponQuickUseDisplayData.Add(wqudd);
+
+                        Debug.Log(wqudd.name);
+
+                        if(!_weaponPos.ContainsKey(wqudd.name))
+                            _weaponPos.Add(wqudd.name, pos);
+
+                        pos++;
                     }
                 }
             }
+                    Debug.Log("-----------------------");
 
             //Make sure list length if correct!
             if (weaponDisplayData.Count != weaponDisplayActives.Count)
@@ -714,8 +733,12 @@ namespace MarsFPSKit
             //Make sure list length if correct!
             if (totalQuickUseDisplayLength != weaponQuickUseDisplayActives.Count)
             {
+                Debug.Log($"{totalQuickUseDisplayLength} - {weaponQuickUseDisplayActives.Count}");
                 while (totalQuickUseDisplayLength != weaponQuickUseDisplayActives.Count)
                 {
+                    if (_isCreate)
+                        break;
+
                     if (weaponQuickUseDisplayActives.Count > totalQuickUseDisplayLength)
                     {
                         Destroy(weaponQuickUseDisplayActives[weaponQuickUseDisplayActives.Count - 1].gameObject);
@@ -732,20 +755,51 @@ namespace MarsFPSKit
                         weaponQuickUseDisplayActives.Add(img);
                     }
                 }
+
+                _isCreate = true;
             }
+
 
             int currentIndex = 0;
 
+            for (int o = 0; o < 6; o++)
+            {
+                weaponQuickUseDisplayActives[o].color = new Color(1,1,1, 0.5f);
+            }
+
             //Now length is correct, redraw!
+
+            Debug.Log(weaponQuickUseDisplayData.Count);
+
             for (int i = 0; i < weaponQuickUseDisplayData.Count; i++)
             {
-                for (int o = 0; o < weaponQuickUseDisplayData[i].amount; o++)
+                for (int o = 0; o < weaponQuickUseDisplayData[i].amount || o < 3; o++)
                 {
-                    weaponQuickUseDisplayActives[currentIndex].sprite = weaponQuickUseDisplayData[i].sprite;
+                    weaponQuickUseDisplayActives[_weaponPos[weaponQuickUseDisplayData[i].name] * 3 + o].sprite = weaponQuickUseDisplayData[i].sprite;
+                    if (o < weaponQuickUseDisplayData[i].amount)
+                        weaponQuickUseDisplayActives[_weaponPos[weaponQuickUseDisplayData[i].name] * 3 + o].color = new Color(1, 1, 1, 1);
+
                     currentIndex++;
                 }
             }
+
+            //StartCoroutine(Dis());
+
+            //if(weaponQuickUseDisplayGo.TryGetComponent(out GridLayoutGroup component))
+            //    component.enabled = false;
+
+            
         }
+
+        private IEnumerator Dis()
+        {
+            yield return new WaitForSeconds(0.8f);
+            if (weaponQuickUseDisplayGo.TryGetComponent(out GridLayoutGroup component))
+                component.enabled = false;
+
+        }
+
+        private bool _isCreate = false;
 
         public override void DisplayHurtState(float state)
         {

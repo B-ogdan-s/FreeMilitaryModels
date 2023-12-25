@@ -60,7 +60,7 @@ namespace MarsFPSKit
         /// Display hit points in the HUD
         /// </summary>
         /// <param name="hp">Amount of hitpoints</param>
-        public abstract void DisplayHealth(float hp);
+        public abstract void DisplayHealth(int hp);
 
         /// <summary>
         /// Display ammo count in the HUD

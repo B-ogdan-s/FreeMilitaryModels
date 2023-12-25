@@ -372,6 +372,7 @@ namespace MarsFPSKit
                 }
             }
         }
+        /*
 
         #region Unity Calls
         void Update()
@@ -467,5 +468,6 @@ namespace MarsFPSKit
             #endregion
         }
         #endregion
+        */
     }
 }

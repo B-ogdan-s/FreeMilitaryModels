@@ -229,7 +229,7 @@ namespace MarsFPSKit
                 if (pb.isFirstPersonActive)
                 {
                     //Update hud
-                    pb.main.hud.DisplayHealth(vrd.hitPoints);
+                    pb.main.hud.DisplayHealth((int)vrd.hitPoints);
                     pb.main.hud.DisplayHurtState(vrd.hitAlpha);
                 }
                 //Return hit reactions

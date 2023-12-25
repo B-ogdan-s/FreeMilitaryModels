@@ -253,7 +253,7 @@ namespace MarsFPSKit
                     if (displayHealthLikeSimple)
                     {
                         //Update hud
-                        pb.main.hud.DisplayHealth(vrd.hitPoints);
+                        pb.main.hud.DisplayHealth((int)vrd.hitPoints);
                         pb.main.hud.DisplayHurtState(vrd.hitAlpha);
                     }
                     else
