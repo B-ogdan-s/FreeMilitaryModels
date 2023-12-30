@@ -101,7 +101,7 @@ namespace MarsFPSKit
         /// <summary>
         /// The game mode timer
         /// </summary>
-        public float timer = 600f;
+        public float timer = 300f;
         /// <summary>
         /// A universal stage for game modes, since every game mode requires one like this
         /// </summary>

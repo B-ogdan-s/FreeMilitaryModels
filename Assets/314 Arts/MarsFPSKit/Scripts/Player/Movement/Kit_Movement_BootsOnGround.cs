@@ -311,9 +311,9 @@ namespace MarsFPSKit
         public float footstepsWalkTime = 0.4f; //Time between footsteps when we're standing
         public float footstepsCrouchTime = 0.7f; //Time between footsteps when we're crouching
 
-        public float footstepsRunVolume = 0.8f; //Volume for footsteps when we're running
-        public float footstepsWalkVolume = 0.4f; //Volume for footsteps when we're walking
-        public float footstepsCrouchVolume = 0.1f; //Volume for footsteps when we're crouching
+        public float footstepsRunVolume = 0.6f; //Volume for footsteps when we're running
+        public float footstepsWalkVolume = 0.3f; //Volume for footsteps when we're walking
+        public float footstepsCrouchVolume = 0.05f; //Volume for footsteps when we're crouching
 
         public StringFootstepDictionary allFootsteps; //All footstep materials
 

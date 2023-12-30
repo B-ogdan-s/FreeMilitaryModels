@@ -34,6 +34,7 @@ namespace MarsFPSKit
         /// How much HP do we have left?
         /// </summary>
         public TextMeshProUGUI healthText;
+        public Slider _armSlider;
         public Slider _slider;
         public Image _renderer;
 
@@ -556,14 +557,23 @@ namespace MarsFPSKit
             {
                 if (!healthRoot.activeSelf) healthRoot.SetActive(true);
                 //Display the HP
-                healthText.text = hp.ToString("D3"); //If you want decimals, change it to F1, F2, etc...
+                //healthText.text = hp.ToString("D3"); //If you want decimals, change it to F1, F2, etc...
                 _slider.value = hp / 100f;
-                _renderer.material.SetFloat("_Value", hp / 100f);
+                //_renderer.material.SetFloat("_Value", hp / 100f);
             }
             else
             {
                 if (healthRoot.activeSelf) healthRoot.SetActive(false);
             }
+        }
+        public override void DisplayArms(int arm)
+        {
+            _armSlider.value = arm / 50f;
+            _renderer.material.SetFloat("_Value", arm / 50f);
+        }
+        public override void ShowArmsCoint(int arm)
+        {
+            healthText.text = arm.ToString("D2");
         }
 
         /// <summary>
@@ -578,20 +588,20 @@ namespace MarsFPSKit
                 if (bl >= 0)
                 {
                     //Set text for bullets left
-                    bulletsLeft.text = bl.ToString("D3");
+                    bulletsLeft.text = TextColorConverter.Instance.SetColor( bl.ToString("D3"));
                 }
                 else
                 {
-                    bulletsLeft.text = "000";
+                    bulletsLeft.text = TextColorConverter.Instance.SetColor("000");
                 }
                 if (bltr >= 0)
                 {
                     //Set text for bullets left to reload
-                    bulletsLeftToReload.text = bltr.ToString("D3");
+                    bulletsLeftToReload.text = TextColorConverter.Instance.SetColor(bltr.ToString("D3"));
                 }
                 else
                 {
-                    bulletsLeftToReload.text = "000";
+                    bulletsLeftToReload.text = TextColorConverter.Instance.SetColor("000");
                 }
 
                 if (!bulletsRoot.activeSelf) bulletsRoot.SetActive(true);

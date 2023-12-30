@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Smoke Grenade
   m_EditorClassIdentifier: 
   weaponName: Smoke Grenade
-  weaponPicture: {fileID: 21300000, guid: c6e175781a7681141b5e13c59d136d1b, type: 3}
-  weaponHudPicture: {fileID: 21300000, guid: 0f42bbdc8e113bd489405342ae4a6bde, type: 3}
-  weaponQuickUsePicture: {fileID: 21300000, guid: 78c3639162c65ee47b492a5b99b68b66,
+  weaponPicture: {fileID: 21300000, guid: e73cc417cdf092547b1c665548ec235d, type: 3}
+  weaponHudPicture: {fileID: 21300000, guid: e73cc417cdf092547b1c665548ec235d, type: 3}
+  weaponQuickUsePicture: {fileID: 21300000, guid: e73cc417cdf092547b1c665548ec235d,
     type: 3}
   weaponKillfeedImage: {fileID: 0}
   weaponType: Primary

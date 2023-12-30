@@ -54,6 +54,8 @@ namespace MarsFPSKit
                 //Create UI
                 if (spectatingUi)
                 {
+                    Debug.LogError("Yes");
+
                     GameObject go = Instantiate(spectatingUi, main.ui_root.transform, false);
                     Kit_SpectatorUI ui = go.GetComponent<Kit_SpectatorUI>();
 
@@ -301,6 +303,7 @@ namespace MarsFPSKit
             public override bool IsCurrentlySpectating(Kit_IngameMain main)
             {
                 SpectatorManagerRuntimeData smrd = main.spectatorManagerRuntimeData as SpectatorManagerRuntimeData;
+
 
                 return smrd.isSpectating;
             }

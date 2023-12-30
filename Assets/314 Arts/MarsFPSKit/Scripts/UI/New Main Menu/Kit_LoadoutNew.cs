@@ -247,6 +247,10 @@ namespace MarsFPSKit
         /// </summary>
         [Header("Player Model Preview")]
         public Transform playerModelPreviewGo;
+
+        public TextMeshProUGUI Text_1;
+        public TextMeshProUGUI Text_2;
+
         /// <summary>
         /// Currently visible player model
         /// </summary>
@@ -307,7 +311,7 @@ namespace MarsFPSKit
             subMenus[currentSubScreen].root.SetActive(true);
 
             //Disable cameras
-            playerModelRenderCam.enabled = false;
+            //playerModelRenderCam.enabled = false;
             weaponPreviewRenderCam.enabled = false;
 
             //Cam default position
@@ -317,7 +321,7 @@ namespace MarsFPSKit
         private void Update()
         {
             //Smoothly move the player model camera where we want it to look at :)
-            playerModelRenderCam.transform.position = Vector3.Lerp(playerModelRenderCam.transform.position, playerModelRenderCamPosition, Time.deltaTime * 5f);
+            //playerModelRenderCam.transform.position = Vector3.Lerp(playerModelRenderCam.transform.position, playerModelRenderCamPosition, Time.deltaTime * 5f);
         }
 
         public override void ForceClose()
@@ -511,9 +515,11 @@ namespace MarsFPSKit
                     if (!main.SwitchMenu(menuScreenId)) return;
                 }
 
-                SwitchMenu(mainCategoryScreenID);
+                //SwitchMenu(mainCategoryScreenID);
             }
 
+            //SwitchMenu(mainCategoryScreenID);
+            PlayerModelSelectTeam(0);
 
 
             playerModelRenderCam.enabled = true;
@@ -524,7 +530,8 @@ namespace MarsFPSKit
 
         public void Back()
         {
-            if (currentSubScreen == loadoutScreenID)
+            if (currentSubScreen == playerModelSelectionScreenId)
+            //if (currentSubScreen == loadoutScreenID)
             {
                 ForceClose();
             }
@@ -836,6 +843,8 @@ namespace MarsFPSKit
             playerModelSelectionActives = new List<GameObject>();
             //List player models
 
+            Debug.Log(game.allPvpTeams[currentSelectedTeamForPlayerModel].playerModelDefault);
+
             for (int i = 0; i < game.allPvpTeams[currentSelectedTeamForPlayerModel].playerModels.Length; i++)
             {
                 int id = i;
@@ -844,75 +853,107 @@ namespace MarsFPSKit
                 //Setup text
                 TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
                 if (txt) txt.text = game.allPvpTeams[currentSelectedTeamForPlayerModel].playerModels[id].displayName;
+
+
                 //Setup Button
                 Button btn = go.GetComponentInChildren<Button>();
-                btn.onClick.AddListener(delegate { PlayerModelSelect(team, id); });
+                btn.onClick.AddListener(delegate { PlayerModelSelect(id); });
+
+                if (go.TryGetComponent(out ButtonShow but))
+                {
+                    but.OnClick += ChangeButton;
+                    string tname = PlayerPrefs.GetString("loadout_" + currentSelectedTeamForPlayerModel + "_pm_" + id + "_name");
+
+                    if (game.allPvpTeams[currentSelectedTeamForPlayerModel].playerModels[id].displayName == tname)
+                        but.Enable();
+                    else
+                        but.Disable();
+                }
+
                 //Add to list
                 playerModelSelectionActives.Add(go);
+
             }
 
             RedrawPlayerModel();
         }
 
-        public void PlayerModelSelect(int team, int id)
+        private void ChangeButton(ButtonShow buttonShow)
         {
-            Kit_ThirdPersonPlayerModel model = game.allPvpTeams[team].playerModels[id].prefab.GetComponent<Kit_ThirdPersonPlayerModel>();
-
-            if (allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelID != id)
+            foreach(var b in playerModelSelectionActives)
             {
-                //Assign
-                allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelID = id;
-                //Customization slots
-                allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations = new int[model.customizationSlots.Length];
-            }
-            else
-            {
-                //Now this is where thigns can go wrong. We have to make SURE that the length is good AND that even if it is good, no invalid options are picked.
-
-                //Check if length matches.
-                if (allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations.Length != model.customizationSlots.Length)
+                if(b.TryGetComponent(out ButtonShow but))
                 {
+                    but.Disable();
+                }
+            }
+            buttonShow.Enable();
+        }
+
+        public void PlayerModelSelect(int id)
+        {
+
+            for (int team = 0; team < 3; team++)
+            {
+
+                Kit_ThirdPersonPlayerModel model = game.allPvpTeams[team].playerModels[id].prefab.GetComponent<Kit_ThirdPersonPlayerModel>();
+
+                if (allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelID != id)
+                {
+                    //Assign
+                    allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelID = id;
+                    //Customization slots
                     allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations = new int[model.customizationSlots.Length];
                 }
                 else
                 {
-                    //Make sure no invalid options are picked.
+                    //Now this is where thigns can go wrong. We have to make SURE that the length is good AND that even if it is good, no invalid options are picked.
 
-                    for (int i = 0; i < allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations.Length; i++)
+                    //Check if length matches.
+                    if (allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations.Length != model.customizationSlots.Length)
                     {
-                        int cId = i;
-                        //Clamp, a slot with 0 customizations is illegal anyway and a configuration error.
-                        allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations[cId] = Mathf.Clamp(allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations[cId], 0, model.customizationSlots[cId].customizations.Length - 1);
+                        allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations = new int[model.customizationSlots.Length];
+                    }
+                    else
+                    {
+                        //Make sure no invalid options are picked.
+
+                        for (int i = 0; i < allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations.Length; i++)
+                        {
+                            int cId = i;
+                            //Clamp, a slot with 0 customizations is illegal anyway and a configuration error.
+                            allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations[cId] = Mathf.Clamp(allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations[cId], 0, model.customizationSlots[cId].customizations.Length - 1);
+                        }
                     }
                 }
-            }
 
-            //Switch to customization menu :)
-            if (allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations.Length > 0)
-            {
-                if (!SwitchMenu(playerModelCustomizationCategoryScreenId)) return;
-
-                for (int i = 0; i < playerModelCustomizationCategoryActives.Count; i++)
+                //Switch to customization menu :)
+                if (allLoadouts[currentlySelectedLoadout].teamLoadout[team].playerModelCustomizations.Length > 0)
                 {
-                    Destroy(playerModelCustomizationCategoryActives[i]);
-                }
+                    if (!SwitchMenu(playerModelCustomizationCategoryScreenId)) return;
 
-                playerModelCustomizationCategoryActives = new List<GameObject>();
+                    for (int i = 0; i < playerModelCustomizationCategoryActives.Count; i++)
+                    {
+                        Destroy(playerModelCustomizationCategoryActives[i]);
+                    }
 
-                for (int i = 0; i < model.customizationSlots.Length; i++)
-                {
-                    int cId = i;
+                    playerModelCustomizationCategoryActives = new List<GameObject>();
 
-                    //Create
-                    GameObject go = Instantiate(playerModelCustomizationCategoryPrefab, playerModelCustomizationCategoryGo, false);
-                    //Setup text
-                    TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
-                    if (txt) txt.text = model.customizationSlots[cId].name;
-                    //Setup Button
-                    Button btn = go.GetComponentInChildren<Button>();
-                    btn.onClick.AddListener(delegate { PlayerModelCustomizeSlot(team, id, cId); });
-                    //Add to list
-                    playerModelCustomizationCategoryActives.Add(go);
+                    for (int i = 0; i < model.customizationSlots.Length; i++)
+                    {
+                        int cId = i;
+
+                        //Create
+                        GameObject go = Instantiate(playerModelCustomizationCategoryPrefab, playerModelCustomizationCategoryGo, false);
+                        //Setup text
+                        TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
+                        if (txt) txt.text = model.customizationSlots[cId].name;
+                        //Setup Button
+                        Button btn = go.GetComponentInChildren<Button>();
+                        btn.onClick.AddListener(delegate { PlayerModelCustomizeSlot(team, id, cId); });
+                        //Add to list
+                        playerModelCustomizationCategoryActives.Add(go);
+                    }
                 }
             }
 
@@ -970,6 +1011,11 @@ namespace MarsFPSKit
                 }
 
                 GameObject playerModel = Instantiate(game.allPvpTeams[currentSelectedTeamForPlayerModel].playerModels[allLoadouts[currentlySelectedLoadout].teamLoadout[currentSelectedTeamForPlayerModel].playerModelID].prefab, playerModelPreviewGo, false);
+
+                if(Text_1)
+                    Text_1.text = game.allPvpTeams[currentSelectedTeamForPlayerModel].playerModels[allLoadouts[currentlySelectedLoadout].teamLoadout[currentSelectedTeamForPlayerModel].playerModelID].text_1;
+                if(Text_2)
+                    Text_2.text = game.allPvpTeams[currentSelectedTeamForPlayerModel].playerModels[allLoadouts[currentlySelectedLoadout].teamLoadout[currentSelectedTeamForPlayerModel].playerModelID].text_2;
 
                 playerModelCurrent = playerModel.GetComponent<Kit_ThirdPersonPlayerModel>();
 

@@ -39,7 +39,7 @@ public class Compas : MonoBehaviour
     {
         int r = (int)_transform.eulerAngles.y;
 
-        _midleText.text = r.ToString();
+        _midleText.text = (r - (r % 10)).ToString();
 
         foreach (var c in _compasValue)
         {
@@ -58,7 +58,7 @@ public class Compas : MonoBehaviour
             if (v < 0)
                 v = 360 + v;
 
-            _letText[i-1].text = v.ToString();
+            _letText[i-1].text = (v - (v%10)).ToString();
         }
 
         for (int i = 1; i <= _rightText.Count; i++)
@@ -68,7 +68,7 @@ public class Compas : MonoBehaviour
             if (v > 360)
                 v = v - 360;
 
-            _rightText[i-1].text = v.ToString();
+            _rightText[i-1].text =  (v - (v%10)).ToString();
         }
     }
 }

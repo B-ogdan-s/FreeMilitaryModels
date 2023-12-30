@@ -230,6 +230,7 @@ namespace MarsFPSKit
                 {
                     //Update hud
                     pb.main.hud.DisplayHealth((int)vrd.hitPoints);
+                    //pb.main.hud.DisplayArms((int)vrd.hitPo);
                     pb.main.hud.DisplayHurtState(vrd.hitAlpha);
                 }
                 //Return hit reactions

@@ -37,8 +37,8 @@ namespace MarsFPSKit
                 //multiplayerButton.gameObject.SetActive(menuManager.game.allPvpGameModes.Length > 0);
 
                 //Create Callback
-                singleplayerButton.onClick.AddListener(delegate { PlaySingleplayer(); });
-                coopButton.onClick.AddListener(delegate { PlayCoop(); });
+                //singleplayerButton.onClick.AddListener(delegate { PlaySingleplayer(); });
+                //coopButton.onClick.AddListener(delegate { PlayCoop(); });
                 multiplayerButton.onClick.AddListener(delegate { PlayMultiplayer(); });
             }
 

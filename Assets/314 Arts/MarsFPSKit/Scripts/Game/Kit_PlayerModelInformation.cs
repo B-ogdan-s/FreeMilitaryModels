@@ -41,5 +41,9 @@ namespace MarsFPSKit
         /// Killfeed configuration for this model
         /// </summary>
         public PlayerModelKillFeedInformation[] killFeedConfig;
+
+        public string text_1;
+        [TextArea(minLines: 5, maxLines: 10)]
+        public string text_2;
     }
 }

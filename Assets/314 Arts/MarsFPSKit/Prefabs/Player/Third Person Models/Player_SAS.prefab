@@ -109,14 +109,7 @@ MonoBehaviour:
   soundVoice: {fileID: 4693717276198333483}
   enemyNameAboveHeadTrigger: {fileID: 65895952552129880}
   enemyNameAboveHeadPos: {fileID: 3348689735086057646}
-  customizationSlots:
-  - name: Head
-    uiPosition: {fileID: 8658642862489937405}
-    customizations:
-    - name: Nothing
-      customizationBehaviours: []
-    - name: Glasses
-      customizationBehaviours: []
+  customizationSlots: []
   information: {fileID: 0}
   firstPersonArmsPrefab:
     m_keys:
@@ -321,7 +314,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 893719120721899032}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -449,7 +442,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 979879916049337437}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -639,7 +632,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2100963727846725992}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
@@ -1175,7 +1168,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3837090617559563465}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}

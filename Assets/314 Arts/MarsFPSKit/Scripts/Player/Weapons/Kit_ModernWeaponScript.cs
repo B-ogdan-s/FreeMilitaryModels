@@ -1211,6 +1211,7 @@ namespace MarsFPSKit
                     //Set this weapon to selected and ready (for other things)
                     data.isSelectedAndReady = true;
 
+
                     if (pb.photonView.IsMine)
                     {
                         //If we are not reloading
@@ -1399,6 +1400,7 @@ namespace MarsFPSKit
                                         data.isAiming = false;
                                     }
                                 }
+
 
                                 //Check for input
                                 if (data.lastReload != pb.input.reload || pb.main.gameInformation.enableAutoReload && data.bulletsLeft == 0 && data.bulletsLeftToReload > 0 && Time.time > data.lastFire + 0.5f)

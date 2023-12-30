@@ -70,6 +70,8 @@ namespace MarsFPSKit
                 //Set Photon AppID!
                 PhotonNetwork.NetworkingClient.AppVersion = PhotonNetwork.PhotonServerSettings.AppSettings.AppVersion;
                 PhotonNetwork.NetworkingClient.AppId = PhotonNetwork.PhotonServerSettings.AppSettings.AppIdRealtime;
+
+                PhotonNetwork.ConnectToRegion(defaultRegion);
             }
 
             public void ChangeRegion(int to)

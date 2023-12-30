@@ -2,6 +2,7 @@
 using Photon.Pun;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace MarsFPSKit
@@ -462,8 +463,43 @@ namespace MarsFPSKit
                 }
             }
 
+            public async void CR_arm(BloodyScreenVitalsRuntimeData vrd)
+            {
+                await Task.Delay(1000);
+                vrd.armCount--;
+                vrd.armPoints = 50;
+            }
+
             public override void CustomUpdate(Kit_PlayerBehaviour pb)
             {
+                if (pb.input.useArm)
+                {
+                    BloodyScreenVitalsRuntimeData vrd = pb.customVitalsData as BloodyScreenVitalsRuntimeData;
+                    WeaponManagerControllerRuntimeData runtimeData = pb.customWeaponManagerData as WeaponManagerControllerRuntimeData;
+
+                    if (vrd.armCount <= 0)
+                        return;
+
+
+                    for (int i = 0; i < runtimeData.weaponsInUse.Length; i++)
+                    {
+                        if (i < slotConfiguration.Length && slotConfiguration[i].enableEquipping)
+                        {
+                            for (int o = 0; o < runtimeData.weaponsInUse[i].weaponsInSlot.Length; o++)
+                            {
+                                pb.thirdPersonPlayerModel.PlayWeaponChangeAnimation(runtimeData.weaponsInUse[i].weaponsInSlot[o].behaviour.thirdPersonAnimType, true, runtimeData.weaponsInUse[i].weaponsInSlot[o].behaviour.drawTime);
+                            }
+                        }
+                    }
+
+                    CR_arm(vrd);
+
+                    Debug.LogError("use arm");
+                    pb.input.useArm = false;
+                }
+
+
+
                 //Get runtime data
                 if (pb.customWeaponManagerData != null && pb.customWeaponManagerData.GetType() == typeof(WeaponManagerControllerRuntimeData))
                 {

@@ -15,7 +15,7 @@ namespace MarsFPSKit
         /// <summary>
         /// How long does the spawn protection last?
         /// </summary>
-        public float spawnProtectionTime = 10f;
+        public float spawnProtectionTime = 5f;
 
         public override void CustomStart(Kit_PlayerBehaviour pb)
         {

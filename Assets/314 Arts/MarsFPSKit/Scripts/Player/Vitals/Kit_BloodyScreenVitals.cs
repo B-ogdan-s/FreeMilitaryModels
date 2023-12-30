@@ -7,6 +7,8 @@ namespace MarsFPSKit
     public class BloodyScreenVitalsRuntimeData
     {
         public float hitPoints;
+        public float armPoints;
+        public int armCount;
         public float lastHit;
         /// <summary>
         /// For displaying the bloody screen
@@ -73,6 +75,17 @@ namespace MarsFPSKit
                 //Check if we can take damage
                 if (!pb.spawnProtection || pb.spawnProtection.CanTakeDamage(pb))
                 {
+                    if(vrd.armPoints > 0)
+                    {
+                        vrd.armPoints -= dmg;
+                        dmg = 0;
+                    }
+                    if( vrd.armPoints < 0)
+                    {
+                        dmg = -vrd.armPoints;
+                        vrd.armPoints = 0;
+                    }
+
                     //Check for hitpoints
                     if (vrd.hitPoints > 0)
                     {
@@ -116,6 +129,17 @@ namespace MarsFPSKit
                 //Check if we can take damage
                 if (!pb.spawnProtection || pb.spawnProtection.CanTakeDamage(pb))
                 {
+                    if (vrd.armPoints > 0)
+                    {
+                        vrd.armPoints -= dmg;
+                        dmg = 0;
+                    }
+                    if (vrd.armPoints < 0)
+                    {
+                        dmg = -vrd.armPoints;
+                        vrd.armPoints = 0;
+                    }
+
                     //Check for hitpoints
                     if (vrd.hitPoints > 0)
                     {
@@ -156,6 +180,18 @@ namespace MarsFPSKit
             if (pb.customVitalsData != null && pb.customVitalsData.GetType() == typeof(BloodyScreenVitalsRuntimeData))
             {
                 BloodyScreenVitalsRuntimeData vrd = pb.customVitalsData as BloodyScreenVitalsRuntimeData;
+
+                if (vrd.armPoints > 0)
+                {
+                    vrd.armPoints -= dmg;
+                    dmg = 0;
+                }
+                if (vrd.armPoints < 0)
+                {
+                    dmg = -vrd.armPoints;
+                    vrd.armPoints = 0;
+                }
+
                 //Check for hitpoints
                 if (vrd.hitPoints > 0)
                 {
@@ -192,6 +228,18 @@ namespace MarsFPSKit
             if (pb.customVitalsData != null && pb.customVitalsData.GetType() == typeof(BloodyScreenVitalsRuntimeData))
             {
                 BloodyScreenVitalsRuntimeData vrd = pb.customVitalsData as BloodyScreenVitalsRuntimeData;
+
+                if (vrd.armPoints > 0)
+                {
+                    vrd.armPoints -= dmg;
+                    dmg = 0f;
+                }
+                if (vrd.armPoints < 0)
+                {
+                    dmg = -vrd.armPoints;
+                    vrd.armPoints = 0;
+                }
+
                 //Check for hitpoints
                 if (vrd.hitPoints > 0)
                 {
@@ -254,7 +302,9 @@ namespace MarsFPSKit
                     {
                         //Update hud
                         pb.main.hud.DisplayHealth((int)vrd.hitPoints);
+                        pb.main.hud.DisplayArms((int)vrd.armPoints);
                         pb.main.hud.DisplayHurtState(vrd.hitAlpha);
+                        pb.main.hud.ShowArmsCoint(vrd.armCount);
                     }
                     else
                     {
@@ -300,6 +350,9 @@ namespace MarsFPSKit
             BloodyScreenVitalsRuntimeData vrd = new BloodyScreenVitalsRuntimeData();
             //Set standard values
             vrd.hitPoints = 100f;
+            vrd.armPoints = 50;
+            vrd.armCount = 1;
+
             //Assign it
             pb.customVitalsData = vrd;
         }

@@ -39,6 +39,6 @@ MonoBehaviour:
   killLimit: 30
   winnerCheckTime: 1
   votingThreshold: 30
-  preGameTime: 20
+  preGameTime: 5
   endGameTime: 10
-  mapVotingTime: 20
+  mapVotingTime: 5

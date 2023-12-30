@@ -2,7 +2,9 @@ Shader "Hidden/HPSliderShader"
 {
     Properties
     {
-        
+
+        _Texture("Texture", 2D) = "white"{}
+
         _LeftColor1("LeftColor1", Color) = (1,1,1,1)
         _LeftColor2("LeftColor2", Color) = (1,1,1,1)
         _LeftColor3("LeftColor3", Color) = (1,1,1,1)
@@ -16,8 +18,23 @@ Shader "Hidden/HPSliderShader"
     }
     SubShader
     {
+        Tags
+        {
+            "RenderType"="Transparent"
+            "Queue"="Geometry"
+        }
         // No culling or depth
-        Cull Off ZWrite Off ZTest Always
+        //Cull Off ZWrite Off ZTest Always
+
+        Cull Off
+
+        Lighting Off
+
+        Blend SrcAlpha OneMinusSrcAlpha
+
+        ZTest [unity_GUIZTestMode]
+
+        ZWrite Off
 
         Pass
         {
@@ -55,9 +72,11 @@ Shader "Hidden/HPSliderShader"
             fixed4 _RightColor2;
             fixed4 _RightColor3;
 
+            sampler2D _Texture;
+
             float _Value;
 
-            fixed4 frag (v2f i) : SV_Target
+            float4 frag (v2f i) : SV_Target
             {
                 fixed4 col1 = lerp(_LeftColor1, _LeftColor2, _Value / 0.5);
                 fixed4 col2 = lerp(_RightColor1, _RightColor2, _Value / 0.5);
@@ -70,7 +89,13 @@ Shader "Hidden/HPSliderShader"
 
                 fixed4 col = lerp(col1, col2, i.uv.x);
 
-                return col;
+                fixed4 tex = tex2D(_Texture, i.uv);
+
+                //col.a = tex.a;
+
+                col.a = tex.a;
+
+                return col; // float4(col.rgb, tex.a);
             }
             ENDCG
         }

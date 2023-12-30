@@ -15,7 +15,6 @@ MonoBehaviour:
   gameModeName: Sandbox
   maps:
   - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
-  - {fileID: 11400000, guid: fd00df94e64985b48b41a871d55f910d, type: 2}
   coopPlayerAmount: 5
   menuPrefab: {fileID: 3708633093598800005, guid: ec069ed34bd73fa4897ca2e96349c297,
     type: 3}

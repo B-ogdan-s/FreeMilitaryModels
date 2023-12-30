@@ -66,6 +66,7 @@ namespace MarsFPSKit
                 //pb.input.thirdPerson = Input.GetButton("Change Perspective");
                 pb.input.flashlight = Input.GetButton("Flashlight");
                 pb.input.laser = Input.GetButton("Laser");
+                pb.input.useArm = Input.GetKeyDown(KeyCode.F);
 
                 if (MarsScreen.lockCursor)
                 {

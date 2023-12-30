@@ -49,7 +49,7 @@ namespace MarsFPSKit
         /// <summary>
         /// How many seconds until we can start playing? This is the first countdown during which players cannot move or do anything other than spawn or chat.
         /// </summary>
-        public float preGameTime = 20f;
+        public float preGameTime = 5f;
 
         /// <summary>
         /// How many seconds until the map/gamemode voting menu is opened
@@ -59,7 +59,7 @@ namespace MarsFPSKit
         /// <summary>
         /// How many seconds do we have to vote on the next map and game mode?
         /// </summary>
-        public float mapVotingTime = 20f;
+        public float mapVotingTime = 5f;
 
         public override Spectateable GetSpectateable(Kit_IngameMain main)
         {
