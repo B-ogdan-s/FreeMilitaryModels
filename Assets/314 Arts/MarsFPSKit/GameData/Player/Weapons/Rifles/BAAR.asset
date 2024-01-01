@@ -44,6 +44,7 @@ MonoBehaviour:
   RPM: 700
   bulletsPerMag: 30
   bulletsToReloadAtStart: 240
+  bulletsMin: 10
   baseDamage: 43
   range: 500
   damageDropoff:

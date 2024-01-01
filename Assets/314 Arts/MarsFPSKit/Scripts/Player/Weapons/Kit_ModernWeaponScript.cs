@@ -43,6 +43,7 @@ namespace MarsFPSKit
             /// </summary>
             public int bulletsLeftToReload;
 
+            public int bulletsMin;
             /// <summary>
             /// When did we ran the last time (using this weapon)
             /// </summary>
@@ -421,6 +422,8 @@ namespace MarsFPSKit
             /// With how many <see cref="WeaponControllerRuntimeData.bulletsLeftToReload"/> do we start?
             /// </summary>
             public int bulletsToReloadAtStart = 60;
+
+            public int bulletsMin;
             /// <summary>
             /// How much damage does this weapon deal?
             /// </summary>
@@ -999,6 +1002,7 @@ namespace MarsFPSKit
                 data.fireRate = 60f / RPM;
                 data.bulletsPerMag = bulletsPerMag;
                 data.bulletsToReloadAtStart = bulletsToReloadAtStart;
+                data.bulletsMin = bulletsMin;
                 data.baseDamage = baseDamage;
                 data.range = range;
                 data.damageDropoff = damageDropoff;
@@ -1157,6 +1161,7 @@ namespace MarsFPSKit
                 //Setup start values
                 data.bulletsLeft = data.bulletsPerMag;
                 data.bulletsLeftToReload = data.bulletsToReloadAtStart;
+                data.bulletsMin = data.bulletsMin;
 
                 //Object Pool the bullet
                 pb.main.objectPooling.EnqueueInstantiateable(data.bulletPrefab, 50);
@@ -1211,6 +1216,7 @@ namespace MarsFPSKit
                     //Set this weapon to selected and ready (for other things)
                     data.isSelectedAndReady = true;
 
+                    //data.bulletsMin = 
 
                     if (pb.photonView.IsMine)
                     {
@@ -2741,6 +2747,24 @@ namespace MarsFPSKit
                             //Set back to 0
                             data.boltActionState = 0;
                         }
+                    }
+
+
+                    BulletInfoPanel.Instance._isReload = data.reloadInProgress;
+
+
+
+                    if (data.bulletsLeft == 0)
+                    {
+                        BulletInfoPanel.Instance.NoAmmo();
+                    }
+                    else if(data.bulletsMin >= data.bulletsLeft)
+                    {
+                        BulletInfoPanel.Instance.LowAmmo();
+                    }    
+                    else 
+                    {
+                        BulletInfoPanel.Instance.Disable();
                     }
 
                     if (pb.isFirstPersonActive)

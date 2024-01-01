@@ -203,6 +203,7 @@ namespace MarsFPSKit
                     }
                     script.bulletsPerMag = EditorGUILayout.IntField("Bullets Per Mag", script.bulletsPerMag);
                     script.bulletsToReloadAtStart = EditorGUILayout.IntField("Bullets To Reload At Start", script.bulletsToReloadAtStart);
+                    script.bulletsMin = EditorGUILayout.IntField("Bullets Min", script.bulletsMin);
                     script.speedMultiplierBase = EditorGUILayout.FloatField("Speed Multiplier", script.speedMultiplierBase);
                     script.ragdollForce = EditorGUILayout.FloatField("Ragdoll Force", script.ragdollForce);
                     script.timeCannotFireAfterRun = EditorGUILayout.FloatField("Weapon unusable after run in seconds", script.timeCannotFireAfterRun);
