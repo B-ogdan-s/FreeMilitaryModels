@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mapName: Test Map 1
   sceneName: Test_Map_1
-  mapPicture: {fileID: 21300000, guid: ef15e5fc63a090546bac3a75e7998e1e, type: 3}
-  loadingImage: {fileID: 21300000, guid: 477dcab77f1c6f146a33691b77cb89fa, type: 3}
+  mapPicture: {fileID: 21300000, guid: f992e04700142e34193fc08b529aeea8, type: 3}
+  loadingImage: {fileID: 21300000, guid: f992e04700142e34193fc08b529aeea8, type: 3}

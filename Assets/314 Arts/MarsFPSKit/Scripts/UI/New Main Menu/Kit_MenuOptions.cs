@@ -82,11 +82,11 @@ namespace MarsFPSKit
                     int id = i;
                     GameObject go = Instantiate(categoryPrefab, categoryGo, false);
                     //Setup text
-                    TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
+                    TextMeshProUGUI txt = go.GetComponent<TextMeshProUGUI>();
                     txt.text = categories[id].categoryName;
                     //Setup Call
-                    Button btn = go.GetComponentInChildren<Button>();
-                    btn.onClick.AddListener(delegate { SelectCategory(id); });
+                    //Button btn = go.GetComponentInChildren<Button>();
+                    //btn.onClick.AddListener(delegate { SelectCategory(id); });
 
                     //Create array for storing
                     GameObject[] array = new GameObject[categories[i].options.Length];
@@ -99,65 +99,68 @@ namespace MarsFPSKit
                         if (categories[i].options[o].GetOptionType() == OptionType.Dropdown)
                         {
                             GameObject option = Instantiate(optionDropdown, optionsListGo, false);
-                            TextMeshProUGUI oTxt = option.GetComponentInChildren<TextMeshProUGUI>();
-                            oTxt.text = categories[i].options[o].GetDisplayName();
+
+                            TextMeshProUGUI[] texts = option.GetComponentsInChildren<TextMeshProUGUI>();
+                            texts[0].text = categories[i].options[o].GetDisplayName();
+                            texts[1].text = categories[i].options[o].GetHoverText();
                             EventTrigger et = option.AddComponent<EventTrigger>();
                             EventTrigger.Entry hover = new EventTrigger.Entry();
                             hover.eventID = EventTriggerType.PointerEnter;
                             hover.callback.AddListener(delegate { Hover(id, od); });
                             et.triggers.Add(hover);
                             TMP_Dropdown dropdown = option.GetComponentInChildren<TMP_Dropdown>();
-                            categories[id].options[od].OnDropdownStart(oTxt, dropdown);
-                            dropdown.onValueChanged.AddListener(delegate { categories[id].options[od].OnDropdowChange(oTxt, dropdown.value); });
+                            categories[id].options[od].OnDropdownStart(texts[0], dropdown);
+                            dropdown.onValueChanged.AddListener(delegate { categories[id].options[od].OnDropdowChange(texts[0], dropdown.value); });
 
                             //Add
                             optionsCategories[id][od] = option;
                             //Hide
-                            option.SetActive(false);
                         }
                         else if (categories[i].options[o].GetOptionType() == OptionType.Slider)
                         {
                             GameObject option = Instantiate(optionSlider, optionsListGo, false);
-                            TextMeshProUGUI oTxt = option.GetComponentInChildren<TextMeshProUGUI>();
-                            oTxt.text = categories[i].options[o].GetDisplayName();
+
+                            TextMeshProUGUI[] texts = option.GetComponentsInChildren<TextMeshProUGUI>();
+                            texts[0].text = categories[i].options[o].GetDisplayName();
+                            texts[1].text = categories[i].options[o].GetHoverText();
                             EventTrigger et = option.AddComponent<EventTrigger>();
                             EventTrigger.Entry hover = new EventTrigger.Entry();
                             hover.eventID = EventTriggerType.PointerEnter;
                             hover.callback.AddListener(delegate { Hover(id, od); });
                             et.triggers.Add(hover);
                             Slider slider = option.GetComponentInChildren<Slider>();
-                            categories[id].options[od].OnSliderStart(oTxt, slider);
-                            slider.onValueChanged.AddListener(delegate { categories[id].options[od].OnSliderChange(oTxt,  slider.value); });
+                            categories[id].options[od].OnSliderStart(texts[0], slider);
+                            slider.onValueChanged.AddListener(delegate { categories[id].options[od].OnSliderChange(texts[0],  slider.value); });
 
                             //Add
                             optionsCategories[id][od] = option;
                             //Hide
-                            option.SetActive(false);
                         }
                         else if (categories[i].options[o].GetOptionType() == OptionType.Toggle)
                         {
                             GameObject option = Instantiate(optionToggle, optionsListGo, false);
-                            TextMeshProUGUI oTxt = option.GetComponentInChildren<TextMeshProUGUI>();
-                            oTxt.text = categories[i].options[o].GetDisplayName();
+
+                            TextMeshProUGUI[] texts = option.GetComponentsInChildren<TextMeshProUGUI>();
+                            texts[0].text = categories[i].options[o].GetDisplayName();
+                            texts[1].text = categories[i].options[o].GetHoverText();
                             EventTrigger et = option.AddComponent<EventTrigger>();
                             EventTrigger.Entry hover = new EventTrigger.Entry();
                             hover.eventID = EventTriggerType.PointerEnter;
                             hover.callback.AddListener(delegate { Hover(id, od); });
                             et.triggers.Add(hover);
                             Toggle toggle = option.GetComponentInChildren<Toggle>();
-                            categories[id].options[od].OnToggleStart(oTxt, toggle);
-                            toggle.onValueChanged.AddListener(delegate { categories[id].options[od].OnToggleChange(oTxt, toggle.isOn); });
+                            categories[id].options[od].OnToggleStart(texts[0], toggle);
+                            toggle.onValueChanged.AddListener(delegate { categories[id].options[od].OnToggleChange(texts[0], toggle.isOn); });
 
                             //Add
                             optionsCategories[id][od] = option;
                             //Hide
-                            option.SetActive(false);
                         }
                     }
                 }
 
                 //Select default one
-                SelectCategory(0);
+                //SelectCategory(0);
             }
 
             public void SelectCategory(int id)

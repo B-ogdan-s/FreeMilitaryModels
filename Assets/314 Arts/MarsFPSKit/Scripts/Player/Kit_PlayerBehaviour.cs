@@ -33,6 +33,7 @@ namespace MarsFPSKit
         public bool flashlight;
         public bool laser;
         public bool useArm;
+        public bool useArmAnim = false;
         public bool[] weaponSlotUses;
     }
 

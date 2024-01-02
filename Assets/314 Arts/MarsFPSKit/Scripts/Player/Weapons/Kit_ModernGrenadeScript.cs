@@ -319,6 +319,8 @@ namespace MarsFPSKit
                 return 0.5f;
             }
 
+            private bool use = false;
+
             public override void AnimateWeapon(Kit_PlayerBehaviour pb, object runtimeData, int id, float speed)
             {
                 if (pb.isFirstPersonActive)
@@ -422,6 +424,20 @@ namespace MarsFPSKit
                         {
                             data.grenadeRenderer.legacyAnim[data.grenadeRenderer.legacyAnimData.idle].wrapMode = WrapMode.Loop;
                             data.grenadeRenderer.legacyAnim.CrossFade(data.grenadeRenderer.legacyAnimData.idle, 0.3f, PlayMode.StopAll);
+                        }
+
+                        if(pb.input.useArmAnim)
+                        {
+                            Debug.LogError("Fadsafasf");
+
+                            data.grenadeRenderer.anim.Play("Putaway");
+                            use = true;
+                            return;
+                        }
+                        else if(!pb.input.useArmAnim && use)
+                        {
+                            data.grenadeRenderer.anim.Play("Draw");
+                            use = false;
                         }
 
                         //Check if state changed

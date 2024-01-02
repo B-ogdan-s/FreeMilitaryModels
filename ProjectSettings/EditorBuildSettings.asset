@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/314 Arts/MarsFPSKit/Scenes/Map_001.unity
     guid: 54a263474b460be418e25dd99f035c30
+  - enabled: 1
+    path: Assets/myModel/Scene/TestGame.unity
+    guid: df2c2aff0d91ff1419dfc76b3e39cfbf
   m_configObjects: {}

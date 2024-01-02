@@ -1207,6 +1207,8 @@ namespace MarsFPSKit
                 }
             }
 
+            private bool use = false;
+
             public override void CalculateWeaponUpdate(Kit_PlayerBehaviour pb, object runtimeData)
             {
                 if (runtimeData != null && runtimeData.GetType() == typeof(WeaponControllerRuntimeData))
@@ -1407,6 +1409,31 @@ namespace MarsFPSKit
                                     }
                                 }
 
+
+                                if(pb.input.useArmAnim)
+                                {
+
+                                    //for (int i = 0; i < data.weaponRenderer.animAdditionals.Length; i++)
+                                    //{
+                                    //    data.weaponRenderer.animAdditionals[i].Play("Putaway", data.weaponRenderer.animAdditionalsActionLayer[i], 0f);
+                                    //}
+                                    data.weaponRenderer.anim.Play("Putaway");
+                                    
+                                    Debug.LogError("asdafeaefasdfasefae");
+
+                                    use = true;
+
+                                    return;
+                                }
+                                else if(!pb.input.useArmAnim && use)
+                                {
+                                    //for (int i = 0; i < data.weaponRenderer.animAdditionals.Length; i++)
+                                    //{
+                                    //    data.weaponRenderer.animAdditionals[i].Play("Draw", data.weaponRenderer.animAdditionalsActionLayer[i], 0f);
+                                    //}
+                                    data.weaponRenderer.anim.Play("Draw");
+                                    use = false;
+                                }
 
                                 //Check for input
                                 if (data.lastReload != pb.input.reload || pb.main.gameInformation.enableAutoReload && data.bulletsLeft == 0 && data.bulletsLeftToReload > 0 && Time.time > data.lastFire + 0.5f)

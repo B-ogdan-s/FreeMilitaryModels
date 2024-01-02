@@ -123,7 +123,7 @@ namespace MarsFPSKit
             Kit_MapInformation mapInfo = information.GetMapInformationFromSceneName(scene);
             if (mapInfo && mapInfo.loadingImage)
             {
-                backgroundImage.sprite = mapInfo.loadingImage;
+                //backgroundImage.sprite = mapInfo.loadingImage;
                 backgroundImage.enabled = true;
             }
             else

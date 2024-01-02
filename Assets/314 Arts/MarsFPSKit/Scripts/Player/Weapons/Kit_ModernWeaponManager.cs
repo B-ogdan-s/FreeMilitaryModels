@@ -463,11 +463,14 @@ namespace MarsFPSKit
                 }
             }
 
-            public async void CR_arm(BloodyScreenVitalsRuntimeData vrd)
+            public async void CR_arm(BloodyScreenVitalsRuntimeData vrd, Kit_PlayerBehaviour pb)
             {
+                pb.input.useArmAnim = true;
                 await Task.Delay(1000);
                 vrd.armCount--;
                 vrd.armPoints = 50;
+
+                pb.input.useArmAnim = false;
             }
 
             public override void CustomUpdate(Kit_PlayerBehaviour pb)
@@ -480,22 +483,7 @@ namespace MarsFPSKit
                     if (vrd.armCount <= 0)
                         return;
 
-
-                    for (int i = 0; i < runtimeData.weaponsInUse.Length; i++)
-                    {
-                        if (i < slotConfiguration.Length && slotConfiguration[i].enableEquipping)
-                        {
-                            for (int o = 0; o < runtimeData.weaponsInUse[i].weaponsInSlot.Length; o++)
-                            {
-                                pb.thirdPersonPlayerModel.PlayWeaponChangeAnimation(runtimeData.weaponsInUse[i].weaponsInSlot[o].behaviour.thirdPersonAnimType, true, runtimeData.weaponsInUse[i].weaponsInSlot[o].behaviour.drawTime);
-                            }
-                        }
-                    }
-
-                    CR_arm(vrd);
-
-                    Debug.LogError("use arm");
-                    pb.input.useArm = false;
+                    CR_arm(vrd, pb);
                 }
 
 
