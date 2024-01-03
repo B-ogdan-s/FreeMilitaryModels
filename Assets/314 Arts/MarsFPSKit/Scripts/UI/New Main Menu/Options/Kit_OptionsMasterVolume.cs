@@ -42,7 +42,7 @@ namespace MarsFPSKit
                 AudioListener.volume = newValue;
                 PlayerPrefs.SetFloat("audioVolume", newValue);
 
-                txt.text = GetDisplayName() + ": " + (newValue * 100f).ToString("F0") + "%";
+                txt.text = GetDisplayName();// + ": " + (newValue * 100f).ToString("F0") + "%";
             }
         }
     }

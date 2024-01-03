@@ -67,7 +67,7 @@ namespace MarsFPSKit
                 else if (type == SensType.Fullscreen) Kit_GameSettings.fullScreenAimSensitivity = newValue;
                 PlayerPrefs.SetFloat("sens" + type.ToString(), newValue);
 
-                txt.text = GetDisplayName() + ": " + newValue.ToString("F1");
+                txt.text = GetDisplayName();// + ": " + newValue.ToString("F1");
             }
         }
     }

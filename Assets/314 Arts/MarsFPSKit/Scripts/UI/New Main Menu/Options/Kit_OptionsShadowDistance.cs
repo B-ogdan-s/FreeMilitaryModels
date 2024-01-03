@@ -51,7 +51,7 @@ namespace MarsFPSKit
                 QualitySettings.shadowDistance = newValue;
                 PlayerPrefs.SetFloat("shadowDistance", newValue);
 
-                txt.text = GetDisplayName() + ": " + newValue.ToString("F0");
+                txt.text = GetDisplayName();// + ": " + newValue.ToString("F0");
             }
         }
     }

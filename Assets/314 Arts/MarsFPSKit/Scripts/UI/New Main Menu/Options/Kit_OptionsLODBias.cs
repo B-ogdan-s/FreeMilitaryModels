@@ -50,7 +50,7 @@ namespace MarsFPSKit
             {
                 QualitySettings.lodBias = newValue;
                 PlayerPrefs.SetFloat("lodBias", newValue);
-                txt.text = GetDisplayName() + ": " + newValue.ToString("F1");
+                txt.text = GetDisplayName();// + ": " + newValue.ToString("F1");
             }
         }
     }

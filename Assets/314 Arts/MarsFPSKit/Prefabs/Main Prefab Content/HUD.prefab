@@ -1296,7 +1296,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2646861899988347998}
   m_Direction: 2
   m_Value: 0
-  m_Size: 0.9993374
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -2092,7 +2092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -276.18405}
+  m_AnchoredPosition: {x: 0, y: -276.27716}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2755670338167454674
@@ -7094,6 +7094,9 @@ MonoBehaviour:
   canvas: {fileID: 4760696003647434941}
   healthRoot: {fileID: 2856749943441007548}
   healthText: {fileID: 5744053643364860744}
+  _armSlider: {fileID: 0}
+  _slider: {fileID: 0}
+  _renderer: {fileID: 0}
   bulletsRoot: {fileID: 2856712874901084098}
   bulletsLeft: {fileID: 8287990729259451425}
   bulletsLeftToReload: {fileID: 8043931095360143689}
@@ -8701,7 +8704,6 @@ RectTransform:
   m_Children:
   - {fileID: 2646969929192547654}
   - {fileID: 2646872377452292830}
-  - {fileID: 2646881680337722302}
   - {fileID: 2646729242494436052}
   - {fileID: 2646552439829906532}
   - {fileID: 2646645309652849240}
@@ -8716,6 +8718,7 @@ RectTransform:
   - {fileID: 2646899157776890912}
   - {fileID: 2646777913594900564}
   - {fileID: 8484639802435227876}
+  - {fileID: 2646881680337722302}
   m_Father: {fileID: 2646848027532766154}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}

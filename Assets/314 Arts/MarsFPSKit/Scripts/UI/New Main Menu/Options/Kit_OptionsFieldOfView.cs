@@ -50,7 +50,7 @@ namespace MarsFPSKit
             {
                 Kit_GameSettings.baseFov = newValue;
                 PlayerPrefs.SetFloat("fieldOfView", newValue);
-                txt.text = GetDisplayName() + ": " + newValue.ToString("F0") + "°";
+                txt.text = GetDisplayName();// + ": " + newValue.ToString("F0") + "°";
             }
         }
     }
