@@ -82,7 +82,7 @@ namespace MarsFPSKit
                     int id = i;
                     GameObject go = Instantiate(categoryPrefab, categoryGo, false);
                     //Setup text
-                    TextMeshProUGUI txt = go.GetComponent<TextMeshProUGUI>();
+                    TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
                     txt.text = categories[id].categoryName;
                     //Setup Call
                     //Button btn = go.GetComponentInChildren<Button>();

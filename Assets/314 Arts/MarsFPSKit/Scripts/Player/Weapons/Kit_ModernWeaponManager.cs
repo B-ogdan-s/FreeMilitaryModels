@@ -475,6 +475,8 @@ namespace MarsFPSKit
 
             public override void CustomUpdate(Kit_PlayerBehaviour pb)
             {
+                if(pb != null)
+                    if(pb.input != null)
                 if (pb.input.useArm)
                 {
                     BloodyScreenVitalsRuntimeData vrd = pb.customVitalsData as BloodyScreenVitalsRuntimeData;
