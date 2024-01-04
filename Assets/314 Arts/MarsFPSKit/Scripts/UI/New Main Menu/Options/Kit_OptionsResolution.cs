@@ -51,15 +51,15 @@ namespace MarsFPSKit
 
             public override void OnDropdowChange(TextMeshProUGUI txt, int newValue)
             {
-#if !UNITY_ANDROID && !UNITY_IOS
-                if (Screen.currentResolution.width != Screen.resolutions[newValue].width || Screen.currentResolution.height != Screen.resolutions[newValue].height || Screen.currentResolution.refreshRate != Screen.resolutions[newValue].refreshRate)
-                {
-                    //Set resoltuion
-                    Screen.SetResolution(Screen.resolutions[newValue].width, Screen.resolutions[newValue].height, Screen.fullScreenMode, Screen.resolutions[newValue].refreshRate);
-                    //Save
-                    PlayerPrefs.SetInt("resolution", newValue);
-                }
-#endif
+//#if !UNITY_ANDROID && !UNITY_IOS
+//                if (Screen.currentResolution.width != Screen.resolutions[newValue].width || Screen.currentResolution.height != Screen.resolutions[newValue].height || Screen.currentResolution.refreshRate != Screen.resolutions[newValue].refreshRate)
+//                {
+//                    //Set resoltuion
+//                    Screen.SetResolution(Screen.resolutions[newValue].width, Screen.resolutions[newValue].height, Screen.fullScreenMode, Screen.resolutions[newValue].refreshRate);
+//                    //Save
+//                    PlayerPrefs.SetInt("resolution", newValue);
+//                }
+//#endif
             }
         }
     }

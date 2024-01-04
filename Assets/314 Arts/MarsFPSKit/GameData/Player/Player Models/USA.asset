@@ -19,6 +19,7 @@ MonoBehaviour:
   killFeedConfig:
   - idAtWhichToAppear: 6
     toShow: {fileID: 21300000, guid: d5682adbc61c91e45b224553540f816d, type: 3}
+  Sprite: {fileID: 21300000, guid: 46e6c25fba7ed594d827aeabf866d247, type: 3}
   text_1: john "riptac" keller
   text_2: A high ranking member of elite USMC "Deadly Whisper" squad, that became
     (in)famous for multiple infiltration mission on the Pacific Front.

@@ -42,6 +42,8 @@ namespace MarsFPSKit
         /// </summary>
         public PlayerModelKillFeedInformation[] killFeedConfig;
 
+        public Sprite Sprite;
+
         public string text_1;
         [TextArea(minLines: 5, maxLines: 10)]
         public string text_2;

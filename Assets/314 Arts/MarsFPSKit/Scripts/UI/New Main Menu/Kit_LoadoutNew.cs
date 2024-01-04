@@ -861,6 +861,8 @@ namespace MarsFPSKit
 
                 if (go.TryGetComponent(out ButtonShow but))
                 {
+                    but.SetCharacter(game.allPvpTeams[currentSelectedTeamForPlayerModel].playerModels[id].Sprite);
+
                     but.OnClick += ChangeButton;
                     string tname = PlayerPrefs.GetString("loadout_" + currentSelectedTeamForPlayerModel + "_pm_" + id + "_name");
 

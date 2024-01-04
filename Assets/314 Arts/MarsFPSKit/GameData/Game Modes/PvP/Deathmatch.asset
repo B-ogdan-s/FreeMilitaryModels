@@ -15,7 +15,6 @@ MonoBehaviour:
   gameModeName: Deathmatch
   traditionalMaps:
   - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
-  - {fileID: 11400000, guid: ce8f0bb187976c54ab05dc046451ea9e, type: 2}
   traditionalPlayerLimits: 020406080a
   traditionalPlayerNeeded: 020000000400000006000000080000000a000000
   traditionalDurations: 2c01000058020000b0040000

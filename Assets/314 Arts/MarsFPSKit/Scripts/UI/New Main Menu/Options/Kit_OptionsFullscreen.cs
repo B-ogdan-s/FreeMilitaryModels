@@ -35,13 +35,13 @@ namespace MarsFPSKit
 
             public override void OnToggleChange(TextMeshProUGUI txt, bool newValue)
             {
-#if !UNITY_ANDROID && !UNITY_IOS
-                if (Screen.fullScreenMode != (newValue ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed))
-                {
-                    Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, newValue ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed, Screen.currentResolution.refreshRate);
-                }
-#endif
-                PlayerPrefsExtended.SetBool("fullScreen", newValue);
+//#if !UNITY_ANDROID && !UNITY_IOS
+//                if (Screen.fullScreenMode != (newValue ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed))
+//                {
+//                    Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, newValue ? FullScreenMode.ExclusiveFullScreen : FullScreenMode.Windowed, Screen.currentResolution.refreshRate);
+//                }
+//#endif
+//                PlayerPrefsExtended.SetBool("fullScreen", newValue);
             }
         }
     }
