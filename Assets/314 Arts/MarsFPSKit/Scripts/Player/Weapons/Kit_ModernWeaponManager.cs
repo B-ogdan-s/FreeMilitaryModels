@@ -475,18 +475,6 @@ namespace MarsFPSKit
 
             public override void CustomUpdate(Kit_PlayerBehaviour pb)
             {
-                if (pb.input.useArm)
-                {
-                    BloodyScreenVitalsRuntimeData vrd = pb.customVitalsData as BloodyScreenVitalsRuntimeData;
-                    WeaponManagerControllerRuntimeData runtimeData = pb.customWeaponManagerData as WeaponManagerControllerRuntimeData;
-
-                    if (vrd.armCount <= 0)
-                        return;
-
-                    CR_arm(vrd, pb);
-                }
-
-
 
                 //Get runtime data
                 if (pb.customWeaponManagerData != null && pb.customWeaponManagerData.GetType() == typeof(WeaponManagerControllerRuntimeData))
@@ -495,6 +483,17 @@ namespace MarsFPSKit
 
                     if (pb.enableInput)
                     {
+                        if (pb.input.useArm)
+                        {
+                            BloodyScreenVitalsRuntimeData vrd = pb.customVitalsData as BloodyScreenVitalsRuntimeData;
+
+                            if (vrd.armCount <= 0)
+                                return;
+
+                            CR_arm(vrd, pb);
+                        }
+
+
                         if (!runtimeData.isDesiredWeaponLocked)
                         {
                             for (int i = 0; i < runtimeData.weaponsInUse.Length; i++)

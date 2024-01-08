@@ -87,6 +87,7 @@ namespace MarsFPSKit
                         {
                             //Call the die function on pb
                             pb.Die(botShot, idWhoShot, gunID);
+
                         }
                     }
                 }

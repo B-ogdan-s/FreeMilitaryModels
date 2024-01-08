@@ -54,12 +54,12 @@ MonoBehaviour:
   allCoopGameModes:
   - {fileID: 11400000, guid: 48c355fc36e10db47bde2111b181c4c4, type: 2}
   allPvpGameModes:
-  - {fileID: 11400000, guid: 4f4797b789a21ca478ab609686f94216, type: 2}
-  - {fileID: 11400000, guid: ed0867ed3cbc6b743973f1c8249da5c7, type: 2}
   - {fileID: 11400000, guid: e1a01279f7434d340bf66514fc335d03, type: 2}
-  - {fileID: 11400000, guid: 34834f15a98ef7343843b3294c29b8d7, type: 2}
   - {fileID: 11400000, guid: 5e0319e7d68ebb84f8790f4602874373, type: 2}
   - {fileID: 11400000, guid: 1e9b57d2718b9d3449a01447f6d46e83, type: 2}
+  - {fileID: 11400000, guid: 4f4797b789a21ca478ab609686f94216, type: 2}
+  - {fileID: 11400000, guid: ed0867ed3cbc6b743973f1c8249da5c7, type: 2}
+  - {fileID: 11400000, guid: 34834f15a98ef7343843b3294c29b8d7, type: 2}
   allPvpTeams:
   - {fileID: 11400000, guid: c5947a567f6d402418b9193bb3937b5b, type: 2}
   - {fileID: 11400000, guid: 1905cf0b8c4171747ac46fbcd9df1f39, type: 2}

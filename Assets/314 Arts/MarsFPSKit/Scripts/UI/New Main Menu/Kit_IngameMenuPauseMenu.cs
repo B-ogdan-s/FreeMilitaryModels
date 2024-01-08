@@ -58,28 +58,36 @@ namespace MarsFPSKit
                 //}
             }
 
+            private void OnEnable()
+            {
+                if(PhotonNetwork.CountOfPlayersInRooms >= 1)
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+
             private void Update()
             {
-                #region Team - Suicide Button
-                if (main.currentPvEGameModeBehaviour)
-                {
-                    changeTeamButton.gameObject.SetActiveOptimized(false);
-                }
-                else if (main.myPlayer)
-                {
-                    changeTeamButtonText.text = "Suicide";
-                    changeTeamButton.gameObject.SetActiveOptimized(true);
-                }
-                else if (main.currentPvPGameModeBehaviour)
-                {
-                    changeTeamButtonText.text = "Change Team";
-                    changeTeamButton.gameObject.SetActiveOptimized(true);
-                }
-                else
-                {
-                    changeTeamButton.gameObject.SetActiveOptimized(false);
-                }
-                #endregion
+                //#region Team - Suicide Button
+                //if (main.currentPvEGameModeBehaviour)
+                //{
+                //    changeTeamButton.gameObject.SetActiveOptimized(false);
+                //}
+                //else if (main.myPlayer)
+                //{
+                //    changeTeamButtonText.text = "Suicide";
+                //    changeTeamButton.gameObject.SetActiveOptimized(true);
+                //}
+                //else if (main.currentPvPGameModeBehaviour)
+                //{
+                //    changeTeamButtonText.text = "Change Team";
+                //    changeTeamButton.gameObject.SetActiveOptimized(true);
+                //}
+                //else
+                //{
+                //    changeTeamButton.gameObject.SetActiveOptimized(false);
+                //}
+                //#endregion
 
                 #region Spawn/Resume Button
                 if (main.myPlayer)
@@ -101,7 +109,7 @@ namespace MarsFPSKit
 
                 #region Vote Button
                 //Voting only in pvp game modes
-                voteButton.SetActiveOptimized(main.currentPvPGameModeBehaviour);
+                //voteButton.SetActiveOptimized(main.currentPvPGameModeBehaviour);
                 #endregion
             }
         }

@@ -54,8 +54,6 @@ namespace MarsFPSKit
                 //Create UI
                 if (spectatingUi)
                 {
-                    Debug.LogError("Yes");
-
                     GameObject go = Instantiate(spectatingUi, main.ui_root.transform, false);
                     Kit_SpectatorUI ui = go.GetComponent<Kit_SpectatorUI>();
 

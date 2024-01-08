@@ -15,11 +15,7 @@ MonoBehaviour:
   gameModeName: Multi Team Deathmatch
   traditionalMaps:
   - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
-  - {fileID: 11400000, guid: 7f7c0e2ed4697dd46b3bc62a8250f2f7, type: 2}
-  - {fileID: 11400000, guid: eed4fe366e088cb4a9dfd1ff682049ee, type: 2}
-  - {fileID: 11400000, guid: ef3d27fcaf681114a840332b06bbde32, type: 2}
-  - {fileID: 11400000, guid: fd00df94e64985b48b41a871d55f910d, type: 2}
-  - {fileID: 11400000, guid: ce8f0bb187976c54ab05dc046451ea9e, type: 2}
+  - {fileID: 11400000, guid: 93e92470a7314b14789b99705cb19a71, type: 2}
   traditionalPlayerLimits: 020406080a
   traditionalPlayerNeeded: 02000000000000000400000006000000080000000a000000
   traditionalDurations: 2c01000058020000b0040000
@@ -27,10 +23,7 @@ MonoBehaviour:
   traditionalAfkLimits: 000000003c00000078000000b4000000f00000002c010000
   lobbyMaps:
   - {fileID: 11400000, guid: 807ac51a158099543a113b4582066879, type: 2}
-  - {fileID: 11400000, guid: ce8f0bb187976c54ab05dc046451ea9e, type: 2}
-  - {fileID: 11400000, guid: eed4fe366e088cb4a9dfd1ff682049ee, type: 2}
-  - {fileID: 11400000, guid: ef3d27fcaf681114a840332b06bbde32, type: 2}
-  - {fileID: 11400000, guid: fd00df94e64985b48b41a871d55f910d, type: 2}
+  - {fileID: 11400000, guid: 93e92470a7314b14789b99705cb19a71, type: 2}
   lobbyMinimumPlayersNeeded: 2
   lobbyMaximumPlayers: 2
   lobbyGameDuration: 600
@@ -39,7 +32,7 @@ MonoBehaviour:
   lobbyBotsEnabled: 1
   lobbyAmountOfMapsToVoteFor: 2
   lobbyStartWithBotsAfterSeconds: 60
-  hudPrefab: {fileID: 1910031511786292, guid: 115fe7710ee33f54ca080173608442c1, type: 3}
+  hudPrefab: {fileID: 1702067299431274, guid: 92b0dc12873ae124da1c4f1e6f82a687, type: 3}
   spawnSystemToUse: {fileID: 11400000, guid: 7bc5450911303d84c9b0760ee3e2f39a, type: 2}
   botManagerToUse: {fileID: 11400000, guid: 135db0de77158ff46b28c0a0e1afe7a4, type: 2}
   botControlOverride: {fileID: 0}

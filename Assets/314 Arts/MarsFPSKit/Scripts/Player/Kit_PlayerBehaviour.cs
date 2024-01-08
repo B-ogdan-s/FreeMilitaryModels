@@ -1294,6 +1294,8 @@ namespace MarsFPSKit
                     PhotonNetwork.RaiseEvent(evCode, deathInformation, new RaiseEventOptions { Receivers = ReceiverGroup.All }, SendOptions.SendReliable);
                     //Destroy the player
                     PhotonNetwork.Destroy(gameObject);
+
+                    //Debug.Log(PhotonNetwork.NetworkingClient.EventReceived);
                 }
             }
         }
@@ -1394,6 +1396,7 @@ namespace MarsFPSKit
         [PunRPC]
         public void ApplyBlindNetwork(float time, int gunID, Vector3 shotPos, bool botShot, int idWhoShot)
         {
+
             if (isController || isBot && PhotonNetwork.IsMasterClient)
             {
                 if (!isBot)

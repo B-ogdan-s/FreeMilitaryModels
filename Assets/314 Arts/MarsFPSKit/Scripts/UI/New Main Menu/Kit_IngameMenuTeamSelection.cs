@@ -1,4 +1,5 @@
-﻿using TMPro;
+﻿using Photon.Pun;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,32 +34,45 @@ namespace MarsFPSKit
 
             public void Setup()
             {
-                for (int i = 0; i < Mathf.Clamp(main.gameInformation.allPvpTeams.Length, 0, main.currentPvPGameModeBehaviour.maximumAmountOfTeams); i++)
+
+                Debug.Log("asdfsfdaefrg");
+
+                if(PhotonNetwork.IsMasterClient)
                 {
-                    int id = i;
-                    GameObject go = Instantiate(teamPrefab, teamGo, false);
-                    Button btn = go.GetComponentInChildren<Button>();
-                    TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
-
-                    btn.onClick.AddListener(delegate { main.JoinTeam(id); });
-                    txt.text = main.gameInformation.allPvpTeams[id].teamName;
-
-                    //Move to right pos
-                    go.transform.SetSiblingIndex(id);
+                    main.JoinTeam(0);
+                }
+                else
+                {
+                    main.JoinTeam(1);
                 }
 
-                if (main.spectatorManager && main.spectatorManager.IsSpectatingEnabled(main) && main.currentPvPGameModeBehaviour.SpectatingEnabled(main))
-                {
-                    GameObject go = Instantiate(teamPrefab, teamGo, false);
-                    Button btn = go.GetComponentInChildren<Button>();
-                    TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
 
-                    btn.onClick.AddListener(delegate { main.spectatorManager.BeginSpectating(main, true); });
-                    txt.text = "Spectate";
+                //for (int i = 0; i < Mathf.Clamp(main.gameInformation.allPvpTeams.Length, 0, main.currentPvPGameModeBehaviour.maximumAmountOfTeams); i++)
+                //{
+                //    int id = i;
+                //    GameObject go = Instantiate(teamPrefab, teamGo, false);
+                //    Button btn = go.GetComponentInChildren<Button>();
+                //    TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
 
-                    //Move to right pos
-                    go.transform.SetSiblingIndex(Mathf.Clamp(main.gameInformation.allPvpTeams.Length, 0, main.currentPvPGameModeBehaviour.maximumAmountOfTeams));
-                }
+                //    btn.onClick.AddListener(delegate { main.JoinTeam(id); });
+                //    txt.text = main.gameInformation.allPvpTeams[id].teamName;
+
+                //    //Move to right pos
+                //    go.transform.SetSiblingIndex(id);
+                //}
+
+                //if (main.spectatorManager && main.spectatorManager.IsSpectatingEnabled(main) && main.currentPvPGameModeBehaviour.SpectatingEnabled(main))
+                //{
+                //    GameObject go = Instantiate(teamPrefab, teamGo, false);
+                //    Button btn = go.GetComponentInChildren<Button>();
+                //    TextMeshProUGUI txt = go.GetComponentInChildren<TextMeshProUGUI>();
+
+                //    btn.onClick.AddListener(delegate { main.spectatorManager.BeginSpectating(main, true); });
+                //    txt.text = "Spectate";
+
+                //    //Move to right pos
+                //    go.transform.SetSiblingIndex(Mathf.Clamp(main.gameInformation.allPvpTeams.Length, 0, main.currentPvPGameModeBehaviour.maximumAmountOfTeams));
+                //}
             }
         }
     }

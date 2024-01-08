@@ -901,15 +901,15 @@ namespace MarsFPSKit
                             currentPvEGameModeBehaviour.GameModeProceed(this);
                             break;
 
-                        case 2:
-                            if (!currentMapVoting && !currentVictoryScreen)
-                            {
-                                SwitchMenu(ts.teamSelectionId);
-                                //Set Pause Menu state
-                                pauseMenuState = PauseMenuState.teamSelection;
-                            }
+                        //case 2:
+                        //    if (!currentMapVoting && !currentVictoryScreen)
+                        //    {
+                        //        SwitchMenu(ts.teamSelectionId);
+                        //        Set Pause Menu state
+                        //        pauseMenuState = PauseMenuState.teamSelection;
+                        //    }
 
-                            break;
+                        //    break;
                     }
                 }
                 else
@@ -1318,8 +1318,19 @@ namespace MarsFPSKit
         /// Tries to spawn a player
         /// <para>See also: <seealso cref="Kit_GameModeBase.CanSpawn(Kit_IngameMain, Photon.Realtime.Player)"/></para>
         /// </summary>
+        /// 
+
+        int playerCount = 0;
+
         public void Spawn(bool forceRespawn = false)
         {
+            playerCount++;
+
+            if(playerCount >= 2)
+            {
+                pauseMenu.gameObject.SetActive(false);
+            }
+
             switch (currentGameModeType)
             {
                 case 0:
@@ -1540,6 +1551,7 @@ namespace MarsFPSKit
                                         throw new System.Exception("No Loadout menu assigned. This is not allowed.");
                                     }
                                     GameObject go = PhotonNetwork.Instantiate(playerPrefab.name, spawnLocation.position, spawnLocation.rotation, 0, instData);
+
                                     //Copy player
                                     myPlayer = go.GetComponent<Kit_PlayerBehaviour>();
                                     //Take control using the token
@@ -1584,10 +1596,10 @@ namespace MarsFPSKit
             //Voice Chat Callback
             try
             {
-                if (voiceChat)
-                {
-                    voiceChat.JoinedTeam(teamID);
-                }
+                //if (voiceChat)
+                //{
+                //    voiceChat.JoinedTeam(teamID);
+                //}
             }
             catch (Exception e)
             {
@@ -1602,12 +1614,14 @@ namespace MarsFPSKit
             //Should we attempt to spawn?
             if (ts.afterSelection == AfterTeamSelection.AttemptSpawn)
             {
+                Debug.Log("AttemptSpawn");
                 pluginOnForceClose.Invoke();
                 pauseMenuState = PauseMenuState.main;
                 //Activate scoreboard
                 scoreboard.Enable();
                 //Try to spawn
                 Spawn();
+
                 if (!myPlayer)
                 {
                     SwitchMenu(pauseMenu.pauseMenuId, true);
@@ -1615,6 +1629,8 @@ namespace MarsFPSKit
             }
             else if (ts.afterSelection == AfterTeamSelection.Loadout)
             {
+
+                Debug.Log("Loadout");
                 pauseMenuState = PauseMenuState.main;
                 isPauseMenuOpen = true;
                 //Activate scoreboard
@@ -1627,7 +1643,11 @@ namespace MarsFPSKit
             }
             else
             {
-                SwitchMenu(pauseMenu.pauseMenuId, true);
+                Debug.Log("else");
+                Debug.LogError(PhotonNetwork.CountOfPlayersInRooms);
+
+                if (PhotonNetwork.IsMasterClient)
+                    SwitchMenu(pauseMenu.pauseMenuId, true);
                 pauseMenuState = PauseMenuState.main;
                 isPauseMenuOpen = true;
                 //Activate scoreboard
@@ -1677,7 +1697,7 @@ namespace MarsFPSKit
                 int killer = (int)deathInformation[(byte)1];
                 bool botKilled = (bool)deathInformation[(byte)2];
                 int killed = (int)deathInformation[(byte)3];
-
+                                
                 //Update death stat
                 if (botKilled)
                 {
@@ -1694,6 +1714,8 @@ namespace MarsFPSKit
                 }
                 else
                 {
+                    Debug.LogError(killed == PhotonNetwork.LocalPlayer.ActorNumber);
+
                     if (killed == PhotonNetwork.LocalPlayer.ActorNumber)
                     {
                         Hashtable myTable = PhotonNetwork.LocalPlayer.CustomProperties;
@@ -1723,6 +1745,11 @@ namespace MarsFPSKit
                                 gameInformation.statistics.OnDeath(this, cause);
                             }
                         }
+
+                        RaundInfo.Instance.Open(this, "Round lost");
+
+                        PhotonNetwork.Destroy(myPlayer.photonView);
+                        Spawn(this);
                     }
                 }
 
@@ -1790,6 +1817,13 @@ namespace MarsFPSKit
                                 gameInformation.statistics.OnKill(this, cause);
                             }
                         }
+
+
+                        PhotonNetwork.Destroy(myPlayer.photonView);
+                        Spawn(this);
+
+
+                        RaundInfo.Instance.Open(this, "Round win");
                     }
                 }
 
@@ -2240,6 +2274,9 @@ namespace MarsFPSKit
                 {
                     //Clamp the team id to the available teams
                     teamID = Mathf.Clamp(teamID, 0, Mathf.Clamp(gameInformation.allPvpTeams.Length, 0, currentPvPGameModeBehaviour.maximumAmountOfTeams) - 1);
+
+                    Debug.Log($"Team ID: {teamID}");
+
                     //Check if we can join this team OR if we are already in that team
                     if (gameInformation.allPvpGameModes[currentGameMode].CanJoinTeam(this, PhotonNetwork.LocalPlayer, teamID) || teamID == assignedTeamID)
                     {

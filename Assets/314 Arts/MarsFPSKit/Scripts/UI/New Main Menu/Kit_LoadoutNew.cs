@@ -427,8 +427,6 @@ namespace MarsFPSKit
                     //Set default one
                     allLoadouts[id].loadoutWeapons[jd].weaponID = game.defaultWeaponsInSlot[jd];
 
-                    Debug.Log(allLoadouts[id].loadoutWeapons[jd].weaponID);
-
                     Weapons.Kit_ModernWeaponScript wpnRender = game.allWeapons[allLoadouts[id].loadoutWeapons[jd].weaponID] as Weapons.Kit_ModernWeaponScript;
 
                     //Kit_ModernWeaponScript attachments

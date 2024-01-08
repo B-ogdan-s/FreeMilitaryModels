@@ -678,13 +678,9 @@ namespace MarsFPSKit
                     }
 
                     //Add if weapon supports it!
-                    Debug.Log(wqudd);
-
                     if (wqudd != null)
                     {
                         weaponQuickUseDisplayData.Add(wqudd);
-
-                        Debug.Log(wqudd.name);
 
                         if(!_weaponPos.ContainsKey(wqudd.name))
                             _weaponPos.Add(wqudd.name, pos);
@@ -693,7 +689,6 @@ namespace MarsFPSKit
                     }
                 }
             }
-                    Debug.Log("-----------------------");
 
             //Make sure list length if correct!
             if (weaponDisplayData.Count != weaponDisplayActives.Count)
@@ -778,8 +773,6 @@ namespace MarsFPSKit
             }
 
             //Now length is correct, redraw!
-
-            Debug.Log(weaponQuickUseDisplayData.Count);
 
             for (int i = 0; i < weaponQuickUseDisplayData.Count; i++)
             {
