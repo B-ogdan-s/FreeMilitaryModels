@@ -27,6 +27,8 @@ public class Compas : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> _letText;
     [SerializeField] private List<TextMeshProUGUI> _rightText;
 
+    [SerializeField] private List<CompassSmollPanel> _smollPanel;
+
     [SerializeField] private TextMeshProUGUI _letterText;
 
 
@@ -37,7 +39,8 @@ public class Compas : MonoBehaviour
 
     private void UpdateCompas()
     {
-        int r = (int)_transform.eulerAngles.y;
+        float fr = _transform.eulerAngles.y;
+        int r = (int)fr;
 
         _midleText.text = (r - (r % 10)).ToString();
 
@@ -50,25 +53,29 @@ public class Compas : MonoBehaviour
             }
         }
 
-
-        for(int i = 1; i <= _letText.Count; i++)
+        foreach (var s in _smollPanel)
         {
-            int v = r - i * _delta;
-
-            if (v < 0)
-                v = 360 + v;
-
-            _letText[i-1].text = (v - (v%10)).ToString();
+            s.UpdatePosition(fr);
         }
 
-        for (int i = 1; i <= _rightText.Count; i++)
-        {
-            int v = r + i * _delta;
+        //for(int i = 1; i <= _letText.Count; i++)
+        //{
+        //    int v = r - i * _delta;
 
-            if (v > 360)
-                v = v - 360;
+        //    if (v < 0)
+        //        v = 360 + v;
 
-            _rightText[i-1].text =  (v - (v%10)).ToString();
-        }
+        //    _letText[i-1].text = (v - (v%10)).ToString();
+        //}
+
+        //for (int i = 1; i <= _rightText.Count; i++)
+        //{
+        //    int v = r + i * _delta;
+
+        //    if (v > 360)
+        //        v = v - 360;
+
+        //    _rightText[i-1].text =  (v - (v%10)).ToString();
+        //}
     }
 }
